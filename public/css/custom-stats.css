@@ -1,0 +1,9 @@
+.custom-new-orders-color {
+    background-color: #4caf50; /* Color verde */
+    color: white;
+}
+
+.custom-processing-orders-color {
+    background-color: #ff9800; /* Color amarillo */
+    color: white;
+}

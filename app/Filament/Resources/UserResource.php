@@ -4,6 +4,7 @@ namespace App\Filament\Resources;
 
 use App\Filament\Resources\UserResource\Pages;
 use App\Filament\Resources\UserResource\RelationManagers;
+use App\Filament\Resources\UserResource\RelationManagers\OrdersRelationManager;
 use App\Models\User;
 use Filament\Forms;
 use Filament\Forms\Components\TextInput;
@@ -30,24 +31,24 @@ class UserResource extends Resource
                 //Fromulario de creacion de usuario
                 // se crea el campo para el nombre 
                 Forms\Components\TextInput::make('name')
-                ->required(),
+                    ->required(),
                 // se crea el campo para el correo 
                 Forms\Components\TextInput::make('email')
-                ->label('Email Address')
-                ->maxLength('255')
-                ->unique(ignoreRecord: true)
-                ->required(),
+                    ->label('Email Address')
+                    ->maxLength('255')
+                    ->unique(ignoreRecord: true)
+                    ->required(),
                 // se crea el campo para la fecha de creacion del correo 
                 Forms\Components\DateTimePicker::make('email_verified_at')
-                ->label('Email Verified At')
-                ->default(now()),
+                    ->label('Email Verified At')
+                    ->default(now()),
 
                 // is componnet password the users 
                 Forms\Components\TextInput::make('password')
-                ->label('Password')
-                ->dehydrated(fn ($state)=>filled($state))
-                
-                ->required(fn (Page $livewire): bool=>$livewire instanceof CreateRecord),
+                    ->label('Password')
+                    ->dehydrated(fn ($state) => filled($state))
+
+                    ->required(fn (Page $livewire): bool => $livewire instanceof CreateRecord),
             ]);
     }
 
@@ -56,29 +57,30 @@ class UserResource extends Resource
         return $table
             ->columns([
                 // en esta aprte se coloca lo que se quiere mostrar en la columnas 
-                 //this view users of table 
-                 Tables\Columns\TextColumn::make('name')
-                 ->searchable(),
-                 Tables\Columns\TextColumn::make('email')
-                 ->searchable(),
-                 Tables\Columns\TextColumn::make('email_verified_at')
-                 ->dateTime()
-                 ->sortable(),
-                 Tables\Columns\TextColumn::make('created_at')
-                 ->dateTime()
-                 ->sortable(),
+                //this view users of table 
+                Tables\Columns\TextColumn::make('name')
+                    ->searchable(),
+                Tables\Columns\TextColumn::make('email')
+                    ->searchable(),
+                Tables\Columns\TextColumn::make('email_verified_at')
+                    ->dateTime()
+                    ->sortable(),
+                Tables\Columns\TextColumn::make('created_at')
+                    ->dateTime()
+                    ->sortable(),
             ])
             ->filters([
                 //
             ])
             ->actions([
-               Tables\Actions\ActionGroup::make(
-                [ // botones que se necesitan para editar  y elimnar 
-                    Tables\Actions\EditAction::make(),
-                    Tables\Actions\ViewAction::make(),
-                    Tables\Actions\DeleteAction::make(),]
-               )
-               
+                Tables\Actions\ActionGroup::make(
+                    [ // botones que se necesitan para editar  y elimnar 
+                        Tables\Actions\EditAction::make(),
+                        Tables\Actions\ViewAction::make(),
+                        Tables\Actions\DeleteAction::make(),
+                    ]
+                )
+
             ])
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([
@@ -90,7 +92,8 @@ class UserResource extends Resource
     public static function getRelations(): array
     {
         return [
-            //
+            //Agregar la relacion creada  php artisan make:filament-relation-manager  UserResource orders id
+            OrdersRelationManager::class
         ];
     }
 
