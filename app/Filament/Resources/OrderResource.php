@@ -1,7 +1,5 @@
 <?php
-
 namespace App\Filament\Resources;
-
 use App\Filament\Resources\OrderResource\Pages;
 use App\Filament\Resources\OrderResource\RelationManagers;
 use App\Filament\Resources\OrderResource\RelationManagers\AddressRelationManager;
@@ -35,13 +33,10 @@ use Illuminate\Support\Number as SupportNumber;
 use PHPUnit\Framework\Attributes\RequiresPhp;
 use SebastianBergmann\CodeCoverage\Report\Html\Colors;
 use Symfony\Contracts\Service\Attribute\Required;
-
 class OrderResource extends Resource
 {
     protected static ?string $model = Order::class;
-
     protected static ?string $navigationIcon = 'heroicon-o-shopping-bag';
-
     public static function form(Form $form): Form
     {
         return $form

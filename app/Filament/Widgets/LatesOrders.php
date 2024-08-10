@@ -1,7 +1,5 @@
 <?php
-
 namespace App\Filament\Widgets;
-
 use App\Filament\Resources\OrderResource;
 use App\Models\Order;
 use Filament\Tables;
@@ -9,7 +7,6 @@ use Filament\Tables\Actions\Action;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
 use Filament\Widgets\TableWidget as BaseWidget;
-
 class LatesOrders extends BaseWidget
 {
     protected int | string | array $columnSpan = 'full';
@@ -25,7 +22,7 @@ class LatesOrders extends BaseWidget
             ->columns([
                 // ...
                 Tables\Columns\TextColumn::make('id')
-                    ->label('Order ID')
+                    ->label('#')
                     ->searchable(),
                 TextColumn::make('user.name'),
                 TextColumn::make('grand_total')
