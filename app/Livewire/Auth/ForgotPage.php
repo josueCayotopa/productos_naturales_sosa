@@ -2,10 +2,33 @@
 
 namespace App\Livewire\Auth;
 
+use App\Models\User;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Password;
+use Livewire\Attributes\Title;
 use Livewire\Component;
 
+#[Title('Forgot Password')]
 class ForgotPage extends Component
 {
+
+    public $email;
+
+
+    public function save()
+    {
+        $this->validate([
+            'email' => 'required|email|exists:users,email',
+        ]);
+        // estado de la contraseña 
+
+        $status = Password::sendResetLink(['email' => $this->email]);
+        if ($status === Password::RESET_LINK_SENT) {
+            session()->flash('success', 'Password reset link sent to your email address!');
+            $this->email = '';
+        }
+    }
+
     public function render()
     {
         return view('livewire.auth.forgot-page');

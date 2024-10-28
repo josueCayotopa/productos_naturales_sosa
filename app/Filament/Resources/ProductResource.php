@@ -53,6 +53,7 @@ class ProductResource extends Resource
                                     ->unique(Product::class, 'slug', ignoreRecord: true),
                                 Forms\Components\MarkdownEditor::make('description')
                                     ->columnSpanFull()
+                                    ->required()
                                     ->fileAttachmentsDirectory('products')
                             ]
                         )->columns(2),

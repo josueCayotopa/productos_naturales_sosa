@@ -98,11 +98,12 @@ class OrderResource extends Resource
 
                             Select::make('currency') //  moneda
                                 ->options([
-                                    'sol peruano' => 'Sol Peruano',
-                                    'usd' => 'USD'
+                                    'PEN' => 'PEN',
+                                    'USD' => 'USD'
                                 ]),
                             Select::make('shipping_method') //  
                                 ->options([
+                                    'none' => 'none',
                                     'Fedex' => 'FedEx',
                                     'olvacurrier' => 'OlvaCurrier',
                                     'shalom' => 'Shalom',
@@ -190,13 +191,8 @@ class OrderResource extends Resource
                     ->numeric()
                     ->sortable()
                     ->money('S/.'),
-                TextColumn::make('payment_method')
-                    ->searchable()
-                    ->sortable(),
+
                 TextColumn::make('payment_status')
-                    ->searchable()
-                    ->sortable(),
-                TextColumn::make('currency')
                     ->searchable()
                     ->sortable(),
                 TextColumn::make('shipping_method')
