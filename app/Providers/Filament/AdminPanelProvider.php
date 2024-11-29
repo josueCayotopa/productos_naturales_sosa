@@ -28,9 +28,10 @@ class AdminPanelProvider extends PanelProvider
             ->id('admin')
             ->path('admin')
             ->login()
-            ->brandName('DON BIDE')
+            ->brandLogo(asset('assets/img/logo-sosa.png')) // Icono en la esquina superior izquierda
+            ->brandLogoHeight('4rem')
             ->colors([
-                'primary' => 'rgb(37, 99, 235)',
+                'primary' => '#1670C4',
             ])
             ->discoverResources(in: app_path('Filament/Resources'), for: 'App\\Filament\\Resources')
             ->discoverPages(in: app_path('Filament/Pages'), for: 'App\\Filament\\Pages')

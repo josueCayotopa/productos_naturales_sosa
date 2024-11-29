@@ -14,11 +14,13 @@ class OrderStats extends BaseWidget
     protected function getStats(): array
     {
         return [
-            // clase de para mostrar estadisiticas Stat
-            Stat::make('Nuevas Ordenes', Order::query()->where('status', 'new')->count()),
-            Stat::make('Orden en proceso', Order::query()->where('status', 'processing')->count()),
-            Stat::make('Ordenes Enviadas', Order::query()->where('status', 'shipped')->count()),
-            Stat::make('Precio Promedio', Number::currency(Order::query()->avg('grand_total'), 'PEN')),
+              // Clase para mostrar estadísticas con Stat
+              Stat::make('Nuevas Ordenes', Order::query()->where('status', 'new')->count()),
+              Stat::make('Orden en proceso', Order::query()->where('status', 'processing')->count()),
+              Stat::make('Ordenes Enviadas', Order::query()->where('status', 'shipped')->count()),
+              
+              // Total con manejo de valor nulo
+              Stat::make('Total', Number::currency(Order::query()->avg('grand_total') ?? 0, 'PEN')),
         ];
     }
 }

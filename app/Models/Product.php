@@ -20,6 +20,16 @@ class Product extends Model
         'is_featured',
         'in_stock',
         'on_sale',
+        'en_promocion',
+        'porcentaje_descuento',
+        'fecha_inicio_promocion',
+        'fecha_fin_promocion',
+        'imagen_promocion',
+        'tipo', 
+        'lote', 
+        'fecha_vencimiento', 
+
+
     ];
 
     protected $casts = [

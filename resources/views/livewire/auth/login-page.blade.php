@@ -1,119 +1,71 @@
-<div class="w-full max-w-[85rem] py-10 px-4 sm:px-6 lg:px-8 mx-auto">
-    <div class="flex h-full items-center">
-        <main class="w-full max-w-md mx-auto p-6">
-            <div class="bg-white border border-gray-200 rounded-xl shadow-sm dark:bg-gray-800 dark:border-gray-700">
-                <div class="p-4 sm:p-7">
-                    <div class="text-center">
-                        <h1 class="block text-2xl font-bold text-gray-800 dark:text-white">Sign in</h1>
-                        <p class="mt-2 text-sm text-gray-600 dark:text-gray-400">
-                            Don't have an account yet?
-                            <a wire:navigate
-                                class="text-blue-600 decoration-2 hover:underline font-medium dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600"
-                                href="/register">
-                                Sign up here
-                            </a>
-                        </p>
-                    </div>
-
-                    <hr class="my-5 border-slate-300">
-
-                    <!-- Form -->
-                    <form wire:submit.prevent='save'>
-                        @if (session('error') )
-                              <div class="space-y-5">
-                                <div class="bg-red-50 border-s-4 border-red-500 p-4 dark:bg-red-800/30" role="alert"
-                                    tabindex="-1" aria-labelledby="hs-bordered-red-style-label">
-                                    <div class="flex">
-                                        <div class="shrink-0">
-                                            <!-- Icon -->
-                                            <span
-                                                class="inline-flex justify-center items-center size-8 rounded-full border-4 border-red-100 bg-red-200 text-red-800 dark:border-red-900 dark:bg-red-800 dark:text-red-400">
-                                                <svg class="shrink-0 size-4" xmlns="http://www.w3.org/2000/svg"
-                                                    width="24" height="24" viewBox="0 0 24 24" fill="none"
-                                                    stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                                    stroke-linejoin="round">
-                                                    <path d="M18 6 6 18"></path>
-                                                    <path d="m6 6 12 12"></path>
-                                                </svg>
-                                            </span>
-                                            <!-- End Icon -->
-                                        </div>
-                                        <div class="ms-3">
-                                            <h3 id="hs-bordered-red-style-label"
-                                                class="text-gray-800 font-semibold dark:text-white">
-                                                Error!
-                                            </h3>
-                                            <p class="text-sm text-gray-700 dark:text-neutral-400">
-                                               {{ session('error') }}
-                                            </p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        @endif
-                      
-                        <div class="grid gap-y-4">
-                            <!-- Form Group -->
-                            <div>
-                                <label for="email" class="block text-sm mb-2 dark:text-white">Email address</label>
-                                <div class="relative">
-                                    <input type="email" id="email" wire:model="email"
-                                        class="py-3 px-4 block w-full border border-gray-200 rounded-lg text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-slate-900 dark:border-gray-700 dark:text-gray-400 dark:focus:ring-gray-600"aria-describedby="email-error">
-                                    @error('email')
-                                        <div class="absolute inset-y-0 end-0 flex items-center pointer-events-none pe-3">
-                                            <svg class="h-5 w-5 text-red-500" width="16" height="16"
-                                                fill="currentColor" viewBox="0 0 16 16" aria-hidden="true">
-                                                <path
-                                                    d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8 4a.905.905 0 0 0-.9.995l.35 3.507a.552.552 0 0 0 1.1 0l.35-3.507A.905.905 0 0 0 8 4zm.002 6a1 1 0 1 0 0 2 1 1 0 0 0 0-2z" />
-                                            </svg>
-                                        </div>
-                                    @enderror
-
-                                </div>
-                                @error('email')
-                                    <p class="text-xs text-red-600 mt-2" id="email-error">{{ $message }}</p>
-                                @enderror
-
-                            </div>
-                            <!-- End Form Group -->
-
-                            <!-- Form Group -->
-                            <div>
-                                <div class="flex justify-between items-center">
-                                    <label for="password" class="block text-sm mb-2 dark:text-white">Password</label>
-                                    <a wire:navigate
-                                        class="text-sm text-blue-600 decoration-2 hover:underline font-medium dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600"
-                                        href="/forgot">Forgot password?</a>
-                                </div>
-                                <div class="relative">
-                                    <input type="password" id="password" wire:model="password"
-                                        class="py-3 px-4 block w-full border border-gray-200 rounded-lg text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-slate-900 dark:border-gray-700 dark:text-gray-400 dark:focus:ring-gray-600"
-                                        required aria-describedby="password-error">
-                                    @error('password')
-                                        <div class="absolute inset-y-0 end-0 flex items-center pointer-events-none pe-3">
-                                            <svg class="h-5 w-5 text-red-500" width="16" height="16"
-                                                fill="currentColor" viewBox="0 0 16 16" aria-hidden="true">
-                                                <path
-                                                    d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8 4a.905.905 0 0 0-.9.995l.35 3.507a.552.552 0 0 0 1.1 0l.35-3.507A.905.905 0 0 0 8 4zm.002 6a1 1 0 1 0 0 2 1 1 0 0 0 0-2z" />
-                                            </svg>
-                                        </div>
-                                    @enderror
-
-                                </div>
-                                @error('password')
-                                    <p class="text-xs text-red-600 mt-2" id="password-error"> {{ $message }}
-                                    </p>
-                                @enderror
-
-                            </div>
-                            <!-- End Form Group -->
-                            <button type="submit"
-                                class="w-full py-3 px-4 inline-flex justify-center items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent bg-blue-600 text-white hover:bg-blue-700 disabled:opacity-50 disabled:pointer-events-none dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600">Sign
-                                in</button>
-                        </div>
-                    </form>
-                    <!-- End Form -->
+<!-- breadcrumb-area -->
+<section class="breadcrumb-area breadcrumb-bg">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-xl-10">
+                <div class="breadcrumb-content text-center">
+                    <h2 class="title">Login Page</h2>
+                    <nav aria-label="Breadcrumbs" class="breadcrumb-trail">
+                        <ul class="breadcrumb">
+                            <li class="breadcrumb-item trail-item trail-begin">
+                                <a href="index.html"><span>Home</span></a>
+                            </li>
+                            <li class="breadcrumb-item trail-item trail-end"><span>Login</span></li>
+                        </ul>
+                    </nav>
                 </div>
             </div>
+        </div>
     </div>
-</div>
+    <div class="video-shape one"><img src="assets/img/others/video_shape01.png" alt="shape"></div>
+    <div class="video-shape two"><img src="assets/img/others/video_shape02.png" alt="shape"></div>
+</section>
+<!-- breadcrumb-area-end -->
+
+<!-- singUp-area -->
+<section class="singUp-area section-py-130">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-xl-6 col-lg-8">
+                <div class="singUp-wrap">
+                    <h2 class="title">Welcome back!</h2>
+                    <p>Hey there! Ready to log in? Just enter your username and password below and you'll be back in
+                        action in no time. Let's go!</p>
+                    <div class="account__social">
+                        <a href="#" class="account__social-btn">
+                            <img src="assets/img/icons/google.svg" alt="img">
+                            Continue with google
+                        </a>
+                    </div>
+                    <div class="account__divider">
+                        <span>or</span>
+                    </div>
+                    <form action="#" class="account__form">
+                        <div class="form-grp">
+                            <label for="email">Email</label>
+                            <input id="email" type="text" placeholder="email">
+                        </div>
+                        <div class="form-grp">
+                            <label for="password">Password</label>
+                            <input id="password" type="text" placeholder="password">
+                        </div>
+                        <div class="account__check">
+                            <div class="account__check-remember">
+                                <input type="checkbox" class="form-check-input" value="" id="terms-check">
+                                <label for="terms-check" class="form-check-label">Remember me</label>
+                            </div>
+                            <div class="account__check-forgot">
+                                <a href="reset-password.html">Forgot Password?</a>
+                            </div>
+                        </div>
+                        <button type="submit" class="btn btn-two btn-sm" style="border-radius: 5px;">Sign In</button>
+                    </form>
+                    <div class="account__switch">
+                        <p>Don't have an account?<a href="register.html">Sign Up</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- singUp-area-end -->

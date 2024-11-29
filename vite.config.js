@@ -7,7 +7,10 @@ export default defineConfig({
             input: [
                 
                 'resources/css/app.css',
-                'resources/js/app.js'],
+               
+                // Archivos JS principales y adicionales
+                'resources/js/app.js',
+             ],
             refresh: true,
         }),
     ],

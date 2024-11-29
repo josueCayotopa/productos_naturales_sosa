@@ -8,6 +8,7 @@ use App\Livewire\CancelPage;
 use App\Livewire\CartPage;
 use App\Livewire\CategoriesPage;
 use App\Livewire\CheckoutPage;
+use App\Livewire\Contacto;
 use App\Livewire\HomePage;
 use App\Livewire\MyOrderDetailPage;
 use App\Livewire\MyOrdersPage;
@@ -28,7 +29,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', HomePage::class);
+Route::get('/', HomePage::class)->name('HomePage');
+Route::get('/contact', Contacto::class)->name('Contacto');
 Route::get('/categories', CategoriesPage::class);
 Route::get('/products', ProductsPage::class)->name('products');
 Route::get('/cart', CartPage::class);

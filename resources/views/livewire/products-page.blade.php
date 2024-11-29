@@ -1,149 +1,375 @@
-<div class="w-full max-w-[85rem] py-10 px-4 sm:px-6 lg:px-8 mx-auto">
-    <section class="py-10 bg-gray-50 font-poppins dark:bg-gray-800 rounded-lg">
-        <div class="px-4 py-4 mx-auto max-w-7xl lg:py-6 md:px-6">
-            <div class="flex flex-wrap mb-24 -mx-3">
-                <div class="w-full pr-2 lg:w-1/4 lg:block">
-                    <div class="p-4 mb-5 bg-white border border-gray-200 dark:border-gray-900 dark:bg-gray-900">
-                        <h2 class="text-2xl font-bold dark:text-gray-400"> Categories</h2>
+ <!-- breadcrumb-area -->
+ <div class="product-detail-wrapper">
+     <section class="breadcrumb-area breadcrumb-bg">
+         <div class="container">
+             <div class="row justify-content-center">
+                 <div class="col-xl-10">
+                     <div class="breadcrumb-content text-center">
+                         <h2 class="title">Nuestra tienda</h2>
+                         <nav aria-label="Breadcrumbs" class="breadcrumb-trail">
+                             <ul class="breadcrumb">
+                                 <li class="breadcrumb-item trail-item trail-begin">
+                                     <a href="index.html"><span>Inicio</span></a>
+                                 </li>
+                                 <li class="breadcrumb-item trail-item trail-end"><span>
+                                         Nuestra tienda</span></li>
+                             </ul>
+                         </nav>
+                     </div>
+                 </div>
+             </div>
+         </div>
+         <div class="video-shape one"><img src="{{ asset('assets/img/others/video_shape01.png') }}" alt="shape">
+         </div>
+         <div class="video-shape two"><img src="{{ asset('assets/img/others/video_shape02.png') }}" alt="shape">
+         </div>
+     </section>
 
-                        <div class="w-16 pb-2 mb-6 border-b border-rose-600 dark:border-gray-400"></div>
-                        <ul>
-                            @foreach ($categories as $category)
-                                <li class="mb-4" wire:key="{{ $category->id }}">
-                                    <label for="{{ $category->slug }}" class="flex items-center dark:text-gray-400 ">
-                                        <input type="checkbox" wire:model.live="selected_catefories"
-                                            id="{{ $category->slug }}" value="{{ $category->id }}" class="w-4 h-4 mr-2">
-                                        <span class="text-lg">{{ $category->name }}</span>
-                                    </label>
-                                </li>
-                            @endforeach
 
+     <div class="inner-shop-area">
+         <div class="container">
+             <div class="row justify-content-center">
+                 <div class="col-xl-3 col-lg-4 col-md-8 col-sm-8">
+                     <aside class="shop-sidebar">
+                         <div class="widget">
+                             <h4 class="sidebar-title">Filtrar por Precio</h4>
+                             <div class="price_filter">
+                                 <div id="slider-range"></div>
+                                 <div class="price_slider_amount">
+                                     <span>Precio :</span>
+                                     <input type="text" id="amount" name="price" placeholder="Add Your Price" />
+                                     <input type="submit" class="btn" value="Filter">
+                                 </div>
+                             </div>
+                         </div>
+                         <div class="widget">
+                             <h4 class="sidebar-title">CATEGORÍAS</h4>
+                             
+                             <ul class="categories-list list-wrap">
+                                 @foreach ($categories as $category)
+                                     <li wire:key="{{ $category->id }}">
 
-                        </ul>
+                                            <input type="checkbox" wire:model.live="selected_catefories"
+                                                id="{{ $category->slug }}" value="{{ $category->id }}" class="">
+                                            <span class="">{{ $category->name }}</span>
+                                       
+                                       
+                                     </li>
+                                 @endforeach
 
-                    </div>
-                    <div class="p-4 mb-5 bg-white border border-gray-200 dark:bg-gray-900 dark:border-gray-900">
-                        <h2 class="text-2xl font-bold dark:text-gray-400">Brand</h2>
-                        <div class="w-16 pb-2 mb-6 border-b border-rose-600 dark:border-gray-400"></div>
-                        <ul>
-                            @foreach ($brands as $brand)
+                             </ul>
+                         </div>
+                         <div class="widget">
+                            <h4 class="sidebar-title">Marcas</h4>
+                            
+                            <ul class="categories-list list-wrap">
+                                @foreach ($brands as $brand)
                                 <li class="mb-4" wire:key="{{ $brand->id }}">
-                                    <label for="{{ $brand->slug }}" class="flex items-center dark:text-gray-300">
+                                    <label for="{{ $brand->slug }}" class="">
                                         <input type="checkbox" wire:model.live="selected_brands"
                                             id="{{ $brand->slug }}" value="{{ $brand->id }}" class="w-4 h-4 mr-2">
-                                        <span class="text-lg dark:text-gray-400">{{ $brand->name }}</span>
+                                        <span class="">{{ $brand->name }}</span>
                                     </label>
                                 </li>
                             @endforeach
 
-
-                        </ul>
-                    </div>
-                    <div class="p-4 mb-5 bg-white border border-gray-200 dark:bg-gray-900 dark:border-gray-900">
-                        <h2 class="text-2xl font-bold dark:text-gray-400">Product Status</h2>
-                        <div class="w-16 pb-2 mb-6 border-b border-rose-600 dark:border-gray-400"></div>
-                        <ul>
-                            <li class="mb-4">
-                                <label for="featured" class="flex items-center dark:text-gray-300">
-                                    <input type="checkbox" id="featured" wire:model.live="featured" value="1"
-                                        class="w-4 h-4 mr-2">
-                                    <span class="text-lg dark:text-gray-400">Featured Products</span>
-                                </label>
-                            </li>
-                            <li class="mb-4">
-                                <label for="on_sale" class="flex items-center dark:text-gray-300">
-                                    <input type="checkbox" wire:model.live="on_sale" value="1" id="on_sale"
-                                        class="w-4 h-4 mr-2">
-                                    <span class="text-lg dark:text-gray-400">On Sale</span>
-                                </label>
-                            </li>
-                        </ul>
-                    </div>
-
-                    <div class="p-4 mb-5 bg-white border border-gray-200 dark:bg-gray-900 dark:border-gray-900">
-                        <h2 class="text-2xl font-bold dark:text-gray-400">Price</h2>
-                        <div class="w-16 pb-2 mb-6 border-b border-rose-600 dark:border-gray-400"></div>
-                        <div>
-                            <div class="font-semibold">{{ Number::currency($price_range, 'PEN') }}</div>
-                            <input type="range" wire:model.live='price_range'
-                                class="w-full h-1 mb-4 bg-blue-100 rounded appearance-none cursor-pointer"
-                                max="50000" value="200" step="200">
-                            <div class="flex justify-between ">
-                                <span class="inline-block text-lg font-bold text-blue-400 ">S/.
-                                    {{ Number::currency(200) }}</span>
-                                <span class="inline-block text-lg font-bold text-blue-400 ">S/.
-                                    {{ Number::currency(50000) }}</span>
-                            </div>
+                            </ul>
                         </div>
-                    </div>
-                </div>
-                <div class="w-full px-3 lg:w-3/4">
-                    <div class="px-3 mb-4">
-                        <div
-                            class="items-center justify-between hidden px-3 py-2 bg-gray-100 md:flex dark:bg-gray-900 ">
-                            <div class="flex items-center justify-between">
-                                <select wire:model.live="sort" name="" id=""
-                                    class="block w-40 text-base bg-gray-100 cursor-pointer dark:text-gray-400 dark:bg-gray-900">
-                                    <option value="latest">Ordenar por más reciente</option>
-                                    <option value="price">Ordenar por precio</option>
-                                </select>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="flex flex-wrap items-center ">
-                        @foreach ($products as $product)
-                            <div class="w-full px-3 mb-6 sm:w-1/2 md:w-1/3" wire:key="{{ $product->id }}">
-                                <div class="border border-gray-300 dark:border-gray-700">
-                                    <div class="relative bg-gray-200">
-                                        <a href="/products/{{ $product->slug }}" class="">
-                                            <img src="{{ url('storage', $product->images[0]) }}" alt=""
-                                                class="object-cover w-full h-56 mx-auto ">
-                                        </a>
-                                    </div>
-                                    <div class="p-3 ">
-                                        <div class="flex items-center justify-between gap-2 mb-2">
-                                            <h3 class="text-xl font-medium dark:text-gray-400">
-                                                {{ $product->name }}
-                                            </h3>
-                                        </div>
-                                        <p class="text-lg ">
-                                            <span class="text-green-600 dark:text-green-600">
-                                                {{ Number::currency($product->price, 'PEN') }}
-                                            </span>
-                                        </p>
-                                    </div>
-                                    <div class="flex justify-center p-4 border-t border-gray-300 dark:border-gray-700">
-
-                                        <a wire:click.prevent='addToCart({{ $product->id }})' href="#"
-                                            class="text-gray-500 flex items-center space-x-2 dark:text-gray-400 hover:text-red-500 dark:hover:text-red-300">
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
-                                                fill="currentColor" class="w-4 h-4 bi bi-cart3 " viewBox="0 0 16 16">
-                                                <path
-                                                    d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .49.598l-1 5a.5.5 0 0 1-.465.401l-9.397.472L4.415 11H13a.5.5 0 0 1 0 1H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l.84 4.479 9.144-.459L13.89 4H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z">
-                                                </path>
-                                            </svg><span wire:loading.remove wire:target='addToCart({{ $product->id }})'>Add to Cart</span>
-                                            <span wire:loading
-                                                wire:target='addToCart({{ $product->id }})'>Adding..</span>
-
-                                        </a>
-
-                                    </div>
-                                </div>
-                            </div>
-                        @endforeach
-
-
-
-
-                    </div>
-                    <!-- pagination start -->
-                    <div class="flex justify-end mt-6">
-                        {{ $products->links() }}
-                    </div>
-                    <!-- pagination end -->
-                </div>
-            </div>
-        </div>
-    </section>
-
-</div>
+                         <div class="widget">
+                             <h4 class="sidebar-title">
+                                 ÚLTIMOS PRODUCTOS</h4>
+                             <div class="lp-post-list">
+                                 <ul class="lp-post-item list-wrap">
+                                     <li>
+                                         <div class="lp-post-thumb">
+                                             <a href="shop-details.html"><img
+                                                     src="assets/img/products/home_shop_thumb01.png" alt="img"></a>
+                                         </div>
+                                         <div class="lp-post-content">
+                                             <ul class="lp-post-rating list-wrap">
+                                                 <li>
+                                                     <i class="fas fa-star"></i>
+                                                     <i class="fas fa-star"></i>
+                                                     <i class="fas fa-star"></i>
+                                                     <i class="fas fa-star"></i>
+                                                     <i class="fas fa-star"></i>
+                                                 </li>
+                                             </ul>
+                                             <h4 class="title"><a href="shop-details.html">multi vitamin C</a></h4>
+                                             <span class="price">$29.00</span>
+                                         </div>
+                                     </li>
+                                     <li>
+                                         <div class="lp-post-thumb">
+                                             <a href="shop-details.html"><img
+                                                     src="assets/img/products/home_shop_thumb02.png" alt="img"></a>
+                                         </div>
+                                         <div class="lp-post-content">
+                                             <ul class="lp-post-rating list-wrap">
+                                                 <li>
+                                                     <i class="fas fa-star"></i>
+                                                     <i class="fas fa-star"></i>
+                                                     <i class="fas fa-star"></i>
+                                                     <i class="fas fa-star"></i>
+                                                     <i class="fas fa-star"></i>
+                                                 </li>
+                                             </ul>
+                                             <h4 class="title"><a href="shop-details.html">B-complex Zinc</a></h4>
+                                             <span class="price">$36.00</span>
+                                         </div>
+                                     </li>
+                                     <li>
+                                         <div class="lp-post-thumb">
+                                             <a href="shop-details.html"><img
+                                                     src="assets/img/products/home_shop_thumb03.png" alt="img"></a>
+                                         </div>
+                                         <div class="lp-post-content">
+                                             <ul class="lp-post-rating list-wrap">
+                                                 <li>
+                                                     <i class="fas fa-star"></i>
+                                                     <i class="fas fa-star"></i>
+                                                     <i class="fas fa-star"></i>
+                                                     <i class="fas fa-star"></i>
+                                                     <i class="fas fa-star"></i>
+                                                 </li>
+                                             </ul>
+                                             <h4 class="title"><a href="shop-details.html">Protein Powder</a></h4>
+                                             <span class="price">$19.99</span>
+                                         </div>
+                                     </li>
+                                 </ul>
+                             </div>
+                         </div>
+                         <div class="widget">
+                             <h4 class="sidebar-title">
+                                 Etiquetas de producto</h4>
+                             <ul class="Product-tag-list list-wrap">
+                                 <li><a href="shop.html">Bone Support</a></li>
+                                 <li><a href="shop.html">Energy Support</a></li>
+                                 <li><a href="shop.html">Hair</a></li>
+                                 <li><a href="shop.html">Multivitamins</a></li>
+                                 <li><a href="shop.html">Pre-Workout</a></li>
+                                 <li><a href="shop.html">Protein</a></li>
+                                 <li><a href="shop.html">Skin & Nails</a></li>
+                             </ul>
+                         </div>
+                     </aside>
+                 </div>
+                 <div class="col-xl-9 col-lg-8 col-md-12 col-sm-8 shop-sidebar-pad order-first">
+                     <div class="shop-top-wrap">
+                         <div class="row">
+                             <div class="col-md-6">
+                                 <div class="shop-top-left">
+                                     <p class="woocommerce-result-count shop-show-result">Mostrando 1-6 de 18
+                                         resultados</p>
+                                 </div>
+                             </div>
+                             <div class="col-md-6">
+                                 <div class="shop-top-right selection">
+                                     <form class="woocommerce-ordering mb-0" method="get">
+                                         <select id="shortBy" name="orderby" class="orderby form-select"
+                                             aria-label="Shop order">
+                                             <option value="menu_order" selected="selected">Clasificación
+                                                 predeterminada</option>
+                                             <option value="popularity">Ordenar por popularidad</option>
+                                             <option value="rating">Ordenar por calificación promedio</option>
+                                             <option value="date">Ordenar por último</option>
+                                             <option value="price">Ordenar por precio: de menor a mayor</option>
+                                             <option value="price-desc">Ordenar por precio: de mayor a menor</option>
+                                         </select>
+                                     </form>
+                                 </div>
+                             </div>
+                         </div>
+                     </div>
+                     <div class="suxnix-shop-product-main">
+                         <div class="row">
+                             <div class="col-xl-4 col-lg-6 col-md-6">
+                                 <div class="home-shop-item inner-shop-item">
+                                     <div class="home-shop-thumb">
+                                         <a href="shop-details.html">
+                                             <img src="assets/img/products/home_shop_thumb01.png" alt="img">
+                                             <span class="discount"> -20%</span>
+                                         </a>
+                                     </div>
+                                     <div class="home-shop-content">
+                                         <div class="shop-item-cat"><a href="#">Nutrition</a></div>
+                                         <h4 class="title"><a href="shop-details.html">Box Full of Muscles</a></h4>
+                                         <span class="home-shop-price">$85.99</span>
+                                         <div class="home-shop-rating">
+                                             <i class="fas fa-star"></i>
+                                             <i class="fas fa-star"></i>
+                                             <i class="fas fa-star"></i>
+                                             <i class="fas fa-star"></i>
+                                             <i class="fas fa-star-half-alt"></i>
+                                             <span class="total-rating">(20)</span>
+                                         </div>
+                                         <div class="shop-content-bottom">
+                                             <a href="cart.html" class="cart"><i
+                                                     class="flaticon-shopping-cart-1"></i></a>
+                                             <a href="shop-details.html" class="btn btn-two">Buy Now</a>
+                                         </div>
+                                     </div>
+                                 </div>
+                             </div>
+                             <div class="col-xl-4 col-lg-6 col-md-6">
+                                 <div class="home-shop-item inner-shop-item">
+                                     <div class="home-shop-thumb">
+                                         <a href="shop-details.html">
+                                             <img src="assets/img/products/home_shop_thumb02.png" alt="img">
+                                         </a>
+                                     </div>
+                                     <div class="home-shop-content">
+                                         <div class="shop-item-cat"><a href="#">Body & Fit</a></div>
+                                         <h4 class="title"><a href="shop-details.html">Protein Powder 2kg</a></h4>
+                                         <span class="home-shop-price">$59.99</span>
+                                         <div class="home-shop-rating">
+                                             <i class="fas fa-star"></i>
+                                             <i class="fas fa-star"></i>
+                                             <i class="fas fa-star"></i>
+                                             <i class="fas fa-star"></i>
+                                             <i class="fas fa-star-half-alt"></i>
+                                             <span class="total-rating">(34)</span>
+                                         </div>
+                                         <div class="shop-content-bottom">
+                                             <a href="cart.html" class="cart"><i
+                                                     class="flaticon-shopping-cart-1"></i></a>
+                                             <a href="shop-details.html" class="btn btn-two">Buy Now</a>
+                                         </div>
+                                     </div>
+                                 </div>
+                             </div>
+                             <div class="col-xl-4 col-lg-6 col-md-6">
+                                 <div class="home-shop-item inner-shop-item">
+                                     <div class="home-shop-thumb">
+                                         <a href="shop-details.html">
+                                             <img src="assets/img/products/home_shop_thumb03.png" alt="img">
+                                             <span class="discount"> -15%</span>
+                                         </a>
+                                     </div>
+                                     <div class="home-shop-content">
+                                         <div class="shop-item-cat"><a href="#">Fat Burners</a></div>
+                                         <h4 class="title"><a href="shop-details.html">Amino Energy Health 2kg</a>
+                                         </h4>
+                                         <span class="home-shop-price">$29.99</span>
+                                         <div class="home-shop-rating">
+                                             <i class="fas fa-star"></i>
+                                             <i class="fas fa-star"></i>
+                                             <i class="fas fa-star"></i>
+                                             <i class="fas fa-star"></i>
+                                             <i class="fas fa-star-half-alt"></i>
+                                             <span class="total-rating">(19)</span>
+                                         </div>
+                                         <div class="shop-content-bottom">
+                                             <a href="cart.html" class="cart"><i
+                                                     class="flaticon-shopping-cart-1"></i></a>
+                                             <a href="shop-details.html" class="btn btn-two">Buy Now</a>
+                                         </div>
+                                     </div>
+                                 </div>
+                             </div>
+                             <div class="col-xl-4 col-lg-6 col-md-6">
+                                 <div class="home-shop-item inner-shop-item">
+                                     <div class="home-shop-thumb">
+                                         <a href="shop-details.html">
+                                             <img src="assets/img/products/home_shop_thumb04.png" alt="img">
+                                         </a>
+                                     </div>
+                                     <div class="home-shop-content">
+                                         <div class="shop-item-cat"><a href="#">Protein</a></div>
+                                         <h4 class="title"><a href="shop-details.html">Antiaging and Longevity</a>
+                                         </h4>
+                                         <span class="home-shop-price">$49.99</span>
+                                         <div class="home-shop-rating">
+                                             <i class="fas fa-star"></i>
+                                             <i class="fas fa-star"></i>
+                                             <i class="fas fa-star"></i>
+                                             <i class="fas fa-star"></i>
+                                             <i class="fas fa-star-half-alt"></i>
+                                             <span class="total-rating">(12)</span>
+                                         </div>
+                                         <div class="shop-content-bottom">
+                                             <a href="cart.html" class="cart"><i
+                                                     class="flaticon-shopping-cart-1"></i></a>
+                                             <a href="shop-details.html" class="btn btn-two">Buy Now</a>
+                                         </div>
+                                     </div>
+                                 </div>
+                             </div>
+                             <div class="col-xl-4 col-lg-6 col-md-6">
+                                 <div class="home-shop-item inner-shop-item">
+                                     <div class="home-shop-thumb">
+                                         <a href="shop-details.html">
+                                             <img src="assets/img/products/home_shop_thumb05.png" alt="img">
+                                             <span class="discount"> -45%</span>
+                                         </a>
+                                     </div>
+                                     <div class="home-shop-content">
+                                         <div class="shop-item-cat"><a href="#">Fat Burners</a></div>
+                                         <h4 class="title"><a href="shop-details.html">SERIOUR MASS 2kg</a></h4>
+                                         <span class="home-shop-price">$49.99</span>
+                                         <div class="home-shop-rating">
+                                             <i class="fas fa-star"></i>
+                                             <i class="fas fa-star"></i>
+                                             <i class="fas fa-star"></i>
+                                             <i class="fas fa-star"></i>
+                                             <i class="fas fa-star-half-alt"></i>
+                                             <span class="total-rating">(19)</span>
+                                         </div>
+                                         <div class="shop-content-bottom">
+                                             <a href="cart.html" class="cart"><i
+                                                     class="flaticon-shopping-cart-1"></i></a>
+                                             <a href="shop-details.html" class="btn btn-two">Buy Now</a>
+                                         </div>
+                                     </div>
+                                 </div>
+                             </div>
+                             <div class="col-xl-4 col-lg-6 col-md-6">
+                                 <div class="home-shop-item inner-shop-item">
+                                     <div class="home-shop-thumb">
+                                         <a href="shop-details.html">
+                                             <img src="assets/img/products/home_shop_thumb06.png" alt="img">
+                                         </a>
+                                     </div>
+                                     <div class="home-shop-content">
+                                         <div class="shop-item-cat"><a href="#">Burners</a></div>
+                                         <h4 class="title"><a href="shop-details.html">Whey Protein Powder</a></h4>
+                                         <span class="home-shop-price">$29.99</span>
+                                         <div class="home-shop-rating">
+                                             <i class="fas fa-star"></i>
+                                             <i class="fas fa-star"></i>
+                                             <i class="fas fa-star"></i>
+                                             <i class="fas fa-star"></i>
+                                             <i class="fas fa-star-half-alt"></i>
+                                             <span class="total-rating">(29)</span>
+                                         </div>
+                                         <div class="shop-content-bottom">
+                                             <a href="cart.html" class="cart"><i
+                                                     class="flaticon-shopping-cart-1"></i></a>
+                                             <a href="shop-details.html" class="btn btn-two">Buy Now</a>
+                                         </div>
+                                     </div>
+                                 </div>
+                             </div>
+                         </div>
+                         <div class="pagination-wrap">
+                             <ul class="list-wrap">
+                                 <li class="prv-next">
+                                     <a href="shop.html"><i class="fas fa-angle-double-left"></i></a>
+                                 </li>
+                                 <li><a href="shop.html">1</a></li>
+                                 <li><a href="shop.html" class="current">2</a></li>
+                                 <li><a href="shop.html">3</a></li>
+                                 <li><a href="shop.html">...</a></li>
+                                 <li><a href="shop.html">10</a></li>
+                                 <li class="prv-right">
+                                     <a href="shop.html"><i class="fas fa-angle-double-right"></i></a>
+                                 </li>
+                             </ul>
+                         </div>
+                     </div>
+                 </div>
+             </div>
+         </div>
+     </div>
+ </div>
