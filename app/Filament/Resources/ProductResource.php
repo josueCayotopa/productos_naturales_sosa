@@ -73,7 +73,7 @@ class ProductResource extends Resource
                                     ->directory('products')
                                     ->maxFiles(5)
                                     ->reorderable(),
-                                    FileUpload::make('imagen_promocion')
+                                FileUpload::make('imagen_promocion')
                                     ->label('Subir Imágenes para mostrar en promocion') // "Upload Images" en español
                                     ->multiple()
                                     ->directory('products_promocion')
@@ -86,15 +86,46 @@ class ProductResource extends Resource
 
                 Group::make()->schema(
                     [
-                        Section::make('Precio')->schema(
-                            [
-                                TextInput::make('price')
-                                    ->label('Precio') // "Price" en español
-                                    ->numeric()
-                                    ->required()
-                                    ->prefix('PEN')
-                            ]
-                        ),
+                        Section::make('Precio')->schema([
+                            TextInput::make('price')
+                                ->label('Precio')
+                                ->numeric()
+                                ->required()
+                                ->prefix('PEN')
+                                ->reactive() // Actualiza reactivamente otros campos
+                                ->afterStateUpdated(function ($state, callable $set, callable $get) {
+                                    $discountPercentage = $get('porcentaje_descuento') ?? 0; // Obtiene el porcentaje de descuento
+                                    $discountPrice = $state * (1 - $discountPercentage / 100); // Calcula el precio con descuento
+                                    $set('discount_price', $discountPrice); // Asigna el valor al campo de precio con descuento
+                                }),
+                    
+                            TextInput::make('porcentaje_descuento')
+                                ->label('Porcentaje de descuento')
+                                ->numeric()
+                                ->prefix('%')
+                                ->reactive()
+                                ->disabled(fn (callable $get) => !$get('en_promocion'))
+                                ->afterStateUpdated(function ($state, callable $set, callable $get) {
+                                    $price = $get('price') ?? 0; // Obtiene el precio
+                                    $discountPrice = $price * (1 - $state / 100); // Calcula el precio con descuento
+                                    $set('discount_price', $discountPrice); // Asigna el valor al campo de precio con descuento
+                                }),
+                    
+                            TextInput::make('discount_price')
+                                ->label('Precio con descuento')
+                                ->numeric()
+                                ->prefix('PEN')
+                                ->disabled(), // Campo calculado, no editable por el usuario
+                    
+                            DatePicker::make('fecha_inicio_promocion')
+                                ->label('Fecha de inicio de promoción')
+                                ->disabled(fn (callable $get) => !$get('en_promocion')),
+                    
+                            DatePicker::make('fecha_fin_promocion')
+                                ->label('Fecha de fin de promoción')
+                                ->disabled(fn (callable $get) => !$get('en_promocion')),
+                        ]),
+                    
                         Section::make('Asociaciones')->schema(
                             [
                                 Select::make('category_id')
@@ -110,6 +141,7 @@ class ProductResource extends Resource
                                     ->required()
                                     ->preload()
                                     ->relationship('brand', 'name'),
+
                             ]
                         ),
                         Section::make('Estado')->schema(
@@ -134,22 +166,12 @@ class ProductResource extends Resource
                                 Toggle::make('en_promocion')
                                     ->label('En promoción temporal')
                                     ->reactive(), // Permite reaccionar a los cambios de valor
-                                TextInput::make('porcentaje_descuento')
-                                    ->label('Porcentaje de descuento')
+                                TextInput::make('rating')
+                                    ->label('Calificación promedio')
                                     ->numeric()
-                                    ->prefix('%')
-                                    ->disabled(fn(callable $get) => !$get('en_promocion')), // Se habilita solo si 'en_promocion' es verdadero
-                                DatePicker::make('fecha_inicio_promocion')
-                                    ->label('Fecha de inicio de promoción')
-                                    ->disabled(fn(callable $get) => !$get('en_promocion')), // Se habilita solo si 'en_promocion' es verdadero
-                                DatePicker::make('fecha_fin_promocion')
-                                    ->label('Fecha de fin de promoción')
-                                    ->disabled(fn(callable $get) => !$get('en_promocion')), // Se habilita solo si 'en_promocion' es verdadero
-
-
-
-
-
+                                    ->maxValue(5)
+                                    ->step(1)
+                                   ,
 
                             ]
                         )

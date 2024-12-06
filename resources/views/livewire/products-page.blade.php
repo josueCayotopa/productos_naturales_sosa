@@ -184,17 +184,19 @@
                      </div>
                      <div class="suxnix-shop-product-main">
                          <div class="row">
-                             <div class="col-xl-4 col-lg-6 col-md-6">
+                            @foreach ($products as $product)
+
+                             <div class="col-xl-4 col-lg-6 col-md-6" wire:key="{{ $product->id }}">
                                  <div class="home-shop-item inner-shop-item">
                                      <div class="home-shop-thumb">
                                          <a href="shop-details.html">
-                                             <img src="assets/img/products/home_shop_thumb01.png" alt="img">
+                                             <img src="{{ url('storage', $product->images[0]) }}" alt="  {{ $product->name }}">
                                              <span class="discount"> -20%</span>
                                          </a>
                                      </div>
                                      <div class="home-shop-content">
-                                         <div class="shop-item-cat"><a href="#">Nutrition</a></div>
-                                         <h4 class="title"><a href="shop-details.html">Box Full of Muscles</a></h4>
+                                         <div class="shop-item-cat"><a href="#">  {{ $product->category->name }}</a></div>
+                                         <h4 class="title"><a href="shop-details.html">  {{ $product->name }}</a></h4>
                                          <span class="home-shop-price">$85.99</span>
                                          <div class="home-shop-rating">
                                              <i class="fas fa-star"></i>
@@ -212,145 +214,9 @@
                                      </div>
                                  </div>
                              </div>
-                             <div class="col-xl-4 col-lg-6 col-md-6">
-                                 <div class="home-shop-item inner-shop-item">
-                                     <div class="home-shop-thumb">
-                                         <a href="shop-details.html">
-                                             <img src="assets/img/products/home_shop_thumb02.png" alt="img">
-                                         </a>
-                                     </div>
-                                     <div class="home-shop-content">
-                                         <div class="shop-item-cat"><a href="#">Body & Fit</a></div>
-                                         <h4 class="title"><a href="shop-details.html">Protein Powder 2kg</a></h4>
-                                         <span class="home-shop-price">$59.99</span>
-                                         <div class="home-shop-rating">
-                                             <i class="fas fa-star"></i>
-                                             <i class="fas fa-star"></i>
-                                             <i class="fas fa-star"></i>
-                                             <i class="fas fa-star"></i>
-                                             <i class="fas fa-star-half-alt"></i>
-                                             <span class="total-rating">(34)</span>
-                                         </div>
-                                         <div class="shop-content-bottom">
-                                             <a href="cart.html" class="cart"><i
-                                                     class="flaticon-shopping-cart-1"></i></a>
-                                             <a href="shop-details.html" class="btn btn-two">Buy Now</a>
-                                         </div>
-                                     </div>
-                                 </div>
-                             </div>
-                             <div class="col-xl-4 col-lg-6 col-md-6">
-                                 <div class="home-shop-item inner-shop-item">
-                                     <div class="home-shop-thumb">
-                                         <a href="shop-details.html">
-                                             <img src="assets/img/products/home_shop_thumb03.png" alt="img">
-                                             <span class="discount"> -15%</span>
-                                         </a>
-                                     </div>
-                                     <div class="home-shop-content">
-                                         <div class="shop-item-cat"><a href="#">Fat Burners</a></div>
-                                         <h4 class="title"><a href="shop-details.html">Amino Energy Health 2kg</a>
-                                         </h4>
-                                         <span class="home-shop-price">$29.99</span>
-                                         <div class="home-shop-rating">
-                                             <i class="fas fa-star"></i>
-                                             <i class="fas fa-star"></i>
-                                             <i class="fas fa-star"></i>
-                                             <i class="fas fa-star"></i>
-                                             <i class="fas fa-star-half-alt"></i>
-                                             <span class="total-rating">(19)</span>
-                                         </div>
-                                         <div class="shop-content-bottom">
-                                             <a href="cart.html" class="cart"><i
-                                                     class="flaticon-shopping-cart-1"></i></a>
-                                             <a href="shop-details.html" class="btn btn-two">Buy Now</a>
-                                         </div>
-                                     </div>
-                                 </div>
-                             </div>
-                             <div class="col-xl-4 col-lg-6 col-md-6">
-                                 <div class="home-shop-item inner-shop-item">
-                                     <div class="home-shop-thumb">
-                                         <a href="shop-details.html">
-                                             <img src="assets/img/products/home_shop_thumb04.png" alt="img">
-                                         </a>
-                                     </div>
-                                     <div class="home-shop-content">
-                                         <div class="shop-item-cat"><a href="#">Protein</a></div>
-                                         <h4 class="title"><a href="shop-details.html">Antiaging and Longevity</a>
-                                         </h4>
-                                         <span class="home-shop-price">$49.99</span>
-                                         <div class="home-shop-rating">
-                                             <i class="fas fa-star"></i>
-                                             <i class="fas fa-star"></i>
-                                             <i class="fas fa-star"></i>
-                                             <i class="fas fa-star"></i>
-                                             <i class="fas fa-star-half-alt"></i>
-                                             <span class="total-rating">(12)</span>
-                                         </div>
-                                         <div class="shop-content-bottom">
-                                             <a href="cart.html" class="cart"><i
-                                                     class="flaticon-shopping-cart-1"></i></a>
-                                             <a href="shop-details.html" class="btn btn-two">Buy Now</a>
-                                         </div>
-                                     </div>
-                                 </div>
-                             </div>
-                             <div class="col-xl-4 col-lg-6 col-md-6">
-                                 <div class="home-shop-item inner-shop-item">
-                                     <div class="home-shop-thumb">
-                                         <a href="shop-details.html">
-                                             <img src="assets/img/products/home_shop_thumb05.png" alt="img">
-                                             <span class="discount"> -45%</span>
-                                         </a>
-                                     </div>
-                                     <div class="home-shop-content">
-                                         <div class="shop-item-cat"><a href="#">Fat Burners</a></div>
-                                         <h4 class="title"><a href="shop-details.html">SERIOUR MASS 2kg</a></h4>
-                                         <span class="home-shop-price">$49.99</span>
-                                         <div class="home-shop-rating">
-                                             <i class="fas fa-star"></i>
-                                             <i class="fas fa-star"></i>
-                                             <i class="fas fa-star"></i>
-                                             <i class="fas fa-star"></i>
-                                             <i class="fas fa-star-half-alt"></i>
-                                             <span class="total-rating">(19)</span>
-                                         </div>
-                                         <div class="shop-content-bottom">
-                                             <a href="cart.html" class="cart"><i
-                                                     class="flaticon-shopping-cart-1"></i></a>
-                                             <a href="shop-details.html" class="btn btn-two">Buy Now</a>
-                                         </div>
-                                     </div>
-                                 </div>
-                             </div>
-                             <div class="col-xl-4 col-lg-6 col-md-6">
-                                 <div class="home-shop-item inner-shop-item">
-                                     <div class="home-shop-thumb">
-                                         <a href="shop-details.html">
-                                             <img src="assets/img/products/home_shop_thumb06.png" alt="img">
-                                         </a>
-                                     </div>
-                                     <div class="home-shop-content">
-                                         <div class="shop-item-cat"><a href="#">Burners</a></div>
-                                         <h4 class="title"><a href="shop-details.html">Whey Protein Powder</a></h4>
-                                         <span class="home-shop-price">$29.99</span>
-                                         <div class="home-shop-rating">
-                                             <i class="fas fa-star"></i>
-                                             <i class="fas fa-star"></i>
-                                             <i class="fas fa-star"></i>
-                                             <i class="fas fa-star"></i>
-                                             <i class="fas fa-star-half-alt"></i>
-                                             <span class="total-rating">(29)</span>
-                                         </div>
-                                         <div class="shop-content-bottom">
-                                             <a href="cart.html" class="cart"><i
-                                                     class="flaticon-shopping-cart-1"></i></a>
-                                             <a href="shop-details.html" class="btn btn-two">Buy Now</a>
-                                         </div>
-                                     </div>
-                                 </div>
-                             </div>
+                             @endforeach
+
+                           
                          </div>
                          <div class="pagination-wrap">
                              <ul class="list-wrap">

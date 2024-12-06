@@ -19,14 +19,56 @@
                                     </li>
                                     <li><a href="{{ route('products') }}" class="section-link">Productos</a></li>
                                     <li><a href="#paroller" class="section-link">Nosotros</a></li>
-                                    <li><a href="/products" class="section-link">Testimonios</a></li>
-                                    <li><a href="{{ route('products') }}" class="section-link">Tiendas</a></li>
+                                    <li><a href="{{ route('testimonios') }}" class="section-link">Testimonios</a></li>
+                                    <li><a href="{{ route('tiendas') }}" class="section-link">Nuestras Tiendas</a></li>
                                     <li><a href="/contact">Contacto</a></li>
                                 </ul>
                             </div>
                             <div class="header-action d-none d-sm-block">
                                 <ul>
-
+                                    <li class="header-shop-cart">
+                                        <a href="#" class="cart-count"><i class="flaticon-shopping-cart"></i>
+                                            <span class="mini-cart-count">2</span>
+                                        </a>
+                                        <div class="header-mini-cart">
+                                            <ul class="woocommerce-mini-cart cart_list product_list_widget list-wrap">
+                                                <li class="woocommerce-mini-cart-item d-flex align-items-center">
+                                                    <a href="#" class="remove remove_from_cart_button">×</a>
+                                                    <div class="mini-cart-img">
+                                                        <img src="assets/img/products/cart_p01.jpg" alt="Product">
+                                                    </div>
+                                                    <div class="mini-cart-content">
+                                                        <h4 class="product-title"><a href="shop-details.html">Antiaging
+                                                                and Longevity</a></h4>
+                                                        <div class="mini-cart-price">1 ×
+                                                            <span class="woocommerce-Price-amount amount">$49</span>
+                                                        </div>
+                                                    </div>
+                                                </li>
+                                                <li class="woocommerce-mini-cart-item d-flex align-items-center">
+                                                    <a href="#" class="remove remove_from_cart_button">×</a>
+                                                    <div class="mini-cart-img">
+                                                        <img src="assets/img/products/cart_p02.jpg" alt="Product">
+                                                    </div>
+                                                    <div class="mini-cart-content">
+                                                        <h4 class="product-title"><a href="shop-details.html">Branched
+                                                                Chain Amino Acids</a></h4>
+                                                        <div class="mini-cart-price">2 ×
+                                                            <span class="woocommerce-Price-amount amount">$69</span>
+                                                        </div>
+                                                    </div>
+                                                </li>
+                                            </ul>
+                                            <p class="woocommerce-mini-cart__total">
+                                                <strong>Subtotal:</strong>
+                                                <span class="woocommerce-Price-amount">$149</span>
+                                            </p>
+                                            <p class="checkout-link">
+                                                <a href="cart.html" class="button wc-forward">View cart</a>
+                                                <a href="checkout.html" class="button checkout wc-forward">Checkout</a>
+                                            </p>
+                                        </div>
+                                    </li>
                                     <li class="header-search"><a href="#"><i class="flaticon-search"></i></a></li>
                                     <li class="offCanvas-btn d-none d-xl-block"><a href="#"
                                             class="navSidebar-button"><i class="flaticon-layout"></i></a>

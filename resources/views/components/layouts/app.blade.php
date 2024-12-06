@@ -12,6 +12,8 @@
     <!-- Place favicon.ico in the root directory -->
     <!-- CSS here -->
     <link rel="shortcut icon" type="image/x-icon" href="{{ asset('assets/img/logo-sosa.png') }}">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+
     <link href="{{ asset('assets/css/bootstrap.min.css') }}" rel="stylesheet">
     <link href="{{ asset('assets/css/animate.min.css') }}" rel="stylesheet">
     <link href="{{ asset('assets/css/magnific-popup.css') }}" rel="stylesheet">

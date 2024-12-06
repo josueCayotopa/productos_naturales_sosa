@@ -16,6 +16,9 @@ class Product extends Model
         'images',
         'description',
         'price',
+        'discount_price',
+        'rating',
+        'rating_count',
         'is_active',
         'is_featured',
         'in_stock',
@@ -25,12 +28,11 @@ class Product extends Model
         'fecha_inicio_promocion',
         'fecha_fin_promocion',
         'imagen_promocion',
-        'tipo', 
-        'lote', 
-        'fecha_vencimiento', 
-
-
+        'tipo',
+        'lote',
+        'fecha_vencimiento',
     ];
+
 
     protected $casts = [
         'images' => 'array',
@@ -50,5 +52,33 @@ class Product extends Model
     {
         return $this->hasMany(OrderItem::class);
     }
+    public function setDiscountPercentageAttribute($value)
+    {
+        $this->attributes['porcentaje_descuento'] = $value;
+        if ($value && $this->attributes['price']) {
+            $this->attributes['discount_price'] = $this->attributes['price'] * (1 - $value / 100);
+        }
+    }
+    
+    public function setPriceAttribute($value)
+{
+    $this->attributes['price'] = $value;
+    if (isset($this->attributes['porcentaje_descuento'])) {
+        $this->attributes['discount_price'] = $value * (1 - $this->attributes['porcentaje_descuento'] / 100);
+    }
 }
 
+public function setPorcentajeDescuentoAttribute($value)
+{
+    $this->attributes['porcentaje_descuento'] = $value;
+    if (isset($this->attributes['price'])) {
+        $this->attributes['discount_price'] = $this->attributes['price'] * (1 - $value / 100);
+    }
+}
+
+public function getFinalPriceAttribute()
+{
+    return $this->discount_price ?: $this->price;
+}
+
+}

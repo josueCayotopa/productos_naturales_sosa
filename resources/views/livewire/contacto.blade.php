@@ -7,7 +7,7 @@
                     <div class="row justify-content-center">
                         <div class="col-xl-10">
                             <div class="breadcrumb-content text-center">
-                                <h2 class="title">Contact Us</h2>
+                                <h2 class="title">Contactanos a Caleb</h2>
                                 <nav aria-label="Breadcrumbs" class="breadcrumb-trail">
                                     <ul class="breadcrumb">
                                         <li class="breadcrumb-item trail-item trail-begin">
@@ -37,8 +37,9 @@
                                         <i class="far fa-map"></i>
                                     </div>
                                     <div class="contact-content">
-                                        <h5 class="title">Office Address</h5>
-                                        <p class="contact-desc">99 NY Address Street, Brooklyn, United State</p>
+                                        <h5 class="title">
+                                            Dirección de nuestra tienda principal</h5>
+                                        <p class="contact-desc">Av. Heroes del  Cenepa N° 1222</p>
                                     </div>
                                 </div>
                             </div>
@@ -49,8 +50,11 @@
                                         <i class="fas fa-phone"></i>
                                     </div>
                                     <div class="contact-content">
-                                        <h5 class="title">Phone Number</h5>
-                                        <p class="contact-desc">875 7556 464 7658 <br> 765 648 567 98</p>
+                                        <h5 class="title">
+                                            Número de teléfono</h5>
+                                        <p class="contact-desc">970710530
+                                            <br> 969662881 
+                                        </p>
                                     </div>
                                 </div>
                             </div>
@@ -61,8 +65,10 @@
                                         <i class="fas fa-globe"></i>
                                     </div>
                                     <div class="contact-content">
-                                        <h5 class="title">Web Connect</h5>
-                                        <p class="contact-desc">info@suxnixmail.com <br> suxnixexample.com</p>
+                                        <h5 class="title">Conexión Web</h5>
+                                        <p class="contact-desc"> inprabuenasalud@gmail.com <br> <a href="productosnaturalessosa.com">productosnaturalessosa.com</a>  
+                                        <br> <a href="https://www.facebook.com/naturalsosa/"> https://www.facebook.com/naturalsosa/</a>
+                                    </p>
                                     </div>
                                 </div>
                             </div>
@@ -78,47 +84,48 @@
                     <div class="row">
                         <div class="col-xl-6">
                             <div id="contact-map">
-                                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d96811.54759587669!2d-74.01263924803828!3d40.6880494567041!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c25bae694479a3%3A0xb9949385da52e69e!2sBarclays%20Center!5e0!3m2!1sen!2sbd!4v1636195194646!5m2!1sen!2sbd" allowfullscreen loading="lazy"></iframe>
+                                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d834.6992467079322!2d-78.53263497574434!3d-5.637457525991713!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x91b45317fe9f9189%3A0xdbb2f451dc49adda!2sAv%20H%C3%A9roes%20del%20Cenepa%201222%2C%20Bagua%2001721!5e0!3m2!1ses!2spe!4v1732907339600!5m2!1ses!2spe" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                             </div>
                         </div>
                         <div class="col-xl-6">
                             <div class="contact-form-wrap">
                                 <div class="section-title mb-50">
-                                    <p class="sub-title">.. request make ..</p>
-                                    <h2 class="title">Asked Anything You <br> Want To Know</h2>
+                                    <p class="sub-title">.. Escriba su pregutas ..</p>
+                                    <h2 class="title">Preguntar todo lo que  <br>quieras saber</h2>
                                 </div>
                                 <form id="contact-form" action="inc/contact.php" class="contact-form" data-toggle="validator">
                                     <div class="row">
                                         <div class="col-md-6">
                                             <div class="form-grp">
-                                                <label for="full-name">Full Name</label>
-                                                <input type="text" id="full-name" placeholder="Enter here" required="required" data-error="Name is required.">
+                                                <label for="full-name">Nombre completo</label>
+                                                <input type="text" id="full-name" placeholder="Enter here" required="required" data-error="El nombre es requerido">
                                                 <div class="help-block with-errors"></div>
                                             </div>
                                         </div>
                                         <div class="col-md-6">
                                             <div class="form-grp">
-                                                <label for="email">Email Address</label>
-                                                <input type="email" id="email" placeholder="Enter here" required="required" data-error="Email is required.">
+                                                <label for="email">Dirección de correo electrónico</label>
+                                                <input type="email" id="email" placeholder="Enter here" required="required" data-error="El correo es requerido.">
                                                 <div class="help-block with-errors"></div>
                                             </div>
                                         </div>
                                     </div>
                                     <select class="form-select" aria-label="Default select example">
-                                        <option selected disabled>Select Subject **</option>
-                                        <option value="1">Delivery & Orders</option>
+                                        <option selected disabled>Seleccionar Asunto **</option>
+                                        <option value="1">Entrega y pedidos</option>
                                         <option value="2">Diet & Exercise</option>
-                                        <option value="3">Marketing & Press</option>
-                                        <option value="4">Share Your Success</option>
-                                        <option value="5">Wholesale And Returns</option>
+                                        <option value="3">
+                                            Marketing y Radio</option>
+                                        <option value="4">Comparte tu experiencia</option>
+                                        <option value="5">Venta al por mayor y devoluciones</option>
                                     </select>
                                     <div class="form-grp">
-                                        <label for="message">Message</label>
-                                        <textarea name="message" id="message" placeholder="Enter here" required="required" data-error="Message is required."></textarea>
+                                        <label for="message">Mensaje</label>
+                                        <textarea name="message" id="message" placeholder="Enter here" required="required" data-error="El mensaje es requerido."></textarea>
                                         <div class="help-block with-errors"></div>
                                     </div>
                                     <div class="form-btn">
-                                        <button type="submit" class="btn">make request</button>
+                                        <button type="submit" class="btn">Enviar</button>
                                     </div>
                                     <div class="messages"></div>
                                 </form>

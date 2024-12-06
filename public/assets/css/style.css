@@ -7548,3 +7548,48 @@ body.search-visible {
     text-decoration: underline;
 }
 
+/* Ajustes generales para los precios */
+.home-shop-price {
+    font-size: 16px; /* Tamaño base de letra */
+    color: #333; /* Color de texto base */
+    font-weight: 400;
+}
+
+/* Precio original (con descuento aplicado) */
+.home-shop-price.original-price {
+    font-size: 14px; /* Tamaño más pequeño */
+    color: #aaa; /* Color gris claro */
+    text-decoration: line-through; /* Tachado */
+    margin-right: 5px; /* Separación con el precio de descuento */
+}
+
+/* Precio con descuento */
+.home-shop-price.discount-price {
+    font-size: 18px; /* Tamaño más grande para resaltar */
+    color: #e63946; /* Color rojo intenso */
+    font-weight: 700; /* Negrita */
+}
+
+/* Título del producto */
+.home-shop-content .title {
+    font-size: 18px; /* Tamaño del título */
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+/* Alinear las estrellas y calificaciones */
+.home-shop-rating {
+    margin-top: 10px;
+    font-size: 14px;
+    color: #f1c40f;
+}
+
+.home-shop-rating .fas {
+    margin-right: 2px;
+}
+
+.total-rating {
+    font-size: 12px;
+    color: #555;
+    margin-left: 5px;
+}

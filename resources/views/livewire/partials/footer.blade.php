@@ -6,37 +6,37 @@
                 <div class="col-2">
                     <div class="footer-insta-item">
                         <a href="assets/img/others/instagram_post01.jpg" class="popup-image"><img
-                                src="assets/img/others/instagram_post01.jpg" alt="img"></a>
+                                src="{{ asset('assets/img/footer/femmax_muje.jpg') }}" alt="img"></a>
                     </div>
                 </div>
                 <div class="col-2">
                     <div class="footer-insta-item">
                         <a href="assets/img/others/instagram_post02.jpg" class="popup-image"><img
-                                src="assets/img/others/instagram_post02.jpg" alt="img"></a>
+                                src="{{ asset('assets/img/footer/magnecio_hepmax.jpg') }}" alt="img"></a>
                     </div>
                 </div>
                 <div class="col-2">
                     <div class="footer-insta-item">
                         <a href="assets/img/others/instagram_post03.jpg" class="popup-image"><img
-                                src="assets/img/others/instagram_post03.jpg" alt="img"></a>
+                                src="{{ asset('assets/img/footer/sabila_tocosh_stom.jpg') }}" alt="img"></a>
                     </div>
                 </div>
                 <div class="col-2">
                     <div class="footer-insta-item">
                         <a href="assets/img/others/instagram_post04.jpg" class="popup-image"><img
-                                src="assets/img/others/instagram_post04.jpg" alt="img"></a>
+                                src="{{ asset('assets/img/footer/zanakura_hmax.jpg') }}" alt="img"></a>
                     </div>
                 </div>
                 <div class="col-2">
                     <div class="footer-insta-item">
                         <a href="assets/img/others/instagram_post05.jpg" class="popup-image"><img
-                                src="assets/img/others/instagram_post05.jpg" alt="img"></a>
+                                src="{{ asset('assets/img/footer/erkmax_bioprost.jpg')}}" alt="img"></a>
                     </div>
                 </div>
                 <div class="col-2">
                     <div class="footer-insta-item">
                         <a href="assets/img/others/instagram_post06.jpg" class="popup-image"><img
-                                src="assets/img/others/instagram_post06.jpg" alt="img"></a>
+                                src="{{ asset('assets/img/footer/erkmax_bioprost2.jpg') }}" alt="img"></a>
                     </div>
                 </div>
             </div>

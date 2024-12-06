@@ -14,7 +14,7 @@
                            {{-- <h2 class="title">Descubre la Fuerza de la Naturaleza</h2> --}}
 
                            <!-- Botón de llamada a la acción -->
-                           <a href="shop.html" class="btn btn-two">Nuestros Productos</a>
+                           <a href="{{ route('products') }}" class="btn btn-two">Nuestros Productos</a>
                        </div>
                    </div>
                </div>
@@ -57,39 +57,78 @@
                    </div>
                </div>
                <div class="row home-shop-active">
-                   @foreach ($produts_onsale as $produt_onsale)
+                   @forelse ($produts_onsale as $produt_onsale)
                        <div class="col-xl-3">
                            <div class="home-shop-item">
                                <div class="home-shop-thumb">
+                                   {{-- Validación para imágenes --}}
+                                   @if (!empty($produt_onsale->images) && isset($produt_onsale->images[0]))
+                                       <img src="{{ url('storage', $produt_onsale->images[0]) }}"
+                                           alt="{{ $produt_onsale->name }}">
+                                   @else
+                                       <img src="{{ asset('images/default-product.png') }}" alt="Imagen no disponible">
+                                   @endif
 
-                                   <img src="{{ url('storage', $produt_onsale->images[0]) }}" alt="">
-                                   <span class="discount"> -15%</span>
-                                   </a>
-                                   <div class="shop-thumb-shape"></div>
+                                   {{-- Validación para porcentaje de descuento --}}
+                                   @if (!empty($produt_onsale->porcentaje_descuento))
+                                       <span class="discount"> -{{ $produt_onsale->porcentaje_descuento }}%</span>
+                                   @endif
                                </div>
                                <div class="home-shop-content">
-                                   <h4 class="title"><a href="/products/{{ $produt_onsale->slug }}">
-                                           {{ $produt_onsale->name }} </a></h4>
-                                   <span class="home-shop-price">S/. {{ $produt_onsale->price }}</span>
+                                   {{-- Validación para el nombre y el enlace --}}
+                                   <h4 class="title">
+                                       <a href="{{ $produt_onsale->slug ? '/products/' . $produt_onsale->slug : '#' }}">
+                                           {{ $produt_onsale->name ?? 'Producto sin nombre' }}
+                                       </a>
+                                   </h4>
+                                   {{-- Precio con descuento --}}
+                                   @if (!empty($produt_onsale->porcentaje_descuento))
+                                       <span class="home-shop-price original-price">
+                                           <s>S/. {{ number_format($produt_onsale->price ?? 0, 2) }}</s>
+                                       </span>
+                                       <span class="home-shop-price discount-price">
+                                           S/. {{ number_format($produt_onsale->final_price ?? 0, 2) }}
+                                       </span>
+                                   @else
+                                       {{-- Precio normal (sin descuento) --}}
+                                       <span class="home-shop-price">
+                                           S/. {{ number_format($produt_onsale->price ?? 0, 2) }}
+                                       </span>
+                                   @endif
+
+                                   {{-- Estrellas de calificación --}}
                                    <div class="home-shop-rating">
-                                       <i class="fas fa-star"></i>
-                                       <i class="fas fa-star"></i>
-                                       <i class="fas fa-star"></i>
-                                       <i class="fas fa-star"></i>
-                                       <i class="fas fa-star-half-alt"></i>
-                                       <span class="total-rating">(30)</span>
+                                       @php
+                                           $rating = $produt_onsale->rating ?? 0;
+                                           $rating_count = $produt_onsale->rating_count ?? 0;
+                                       @endphp
+
+                                       @for ($i = 0; $i < floor($rating); $i++)
+                                           <i class="fas fa-star"></i>
+                                       @endfor
+                                       @if ($rating - floor($rating) > 0)
+                                           <i class="fas fa-star-half-alt"></i>
+                                       @endif
+
+                                     
                                    </div>
+
+
                                    <div class="shop-content-bottom">
-                                       <a href="cart.html" class="cart"><i class="flaticon-shopping-cart-1"></i></a>
-                                       <a href="/products/{{ $produt_onsale->slug }}" class="btn btn-two">Comprar
-                                           ahora</a>
+                                       <a href="/cart" class="cart">
+                                        <i class="flaticon-shopping-cart"></i>
+                                    </a>
+                                       <a href="{{ $produt_onsale->slug ? '/products/' . $produt_onsale->slug : '#' }}"
+                                           class="btn btn-two">Comprar ahora</a>
                                    </div>
                                </div>
                            </div>
                        </div>
-                   @endforeach
-
+                   @empty
+                       <p class="text-center w-100">No hay productos disponibles actualmente.</p>
+                   @endforelse
                </div>
+
            </div>
            <!-- brand-area -->
            <div class="brand-area">
@@ -202,8 +241,37 @@
        <!-- features-area-end -->
 
        <!-- features-product -->
+
        <section id="paroller" class="features-products">
            <div class="container">
+               @foreach ($produts_onsale as $produt_onsale)
+                   <div class="features-products-wrap">
+                       <div class="row justify-content-center">
+                           <div class="col-lg-6 col-md-8">
+                               <div class="features-products-thumb">
+                                   <div class="main-img">
+                                       <img src="assets/img/banner/prod1.png" alt="img">
+                                   </div>
+                                   <img src="assets/img/banner/cel1.png" alt="img" class="shape-img">
+                               </div>
+                           </div>
+                           <div class="col-lg-6 col-md-10">
+                               <div class="features-product-content">
+                                   <h2 class="title"><a href="shop-details.html">Cápsulas de Células Madre</a></h2>
+                                   <h6 class="features-product-quantity">Alta Concentración, 60 cápsulas</h6>
+                                   <p>Estas cápsulas están formuladas con extractos naturales para revitalizar y
+                                       regenerar
+                                       células, ayudando a mejorar el bienestar y vitalidad en general.</p>
+                                   <div class="features-product-bottom">
+                                       <a href="/products/{{ $produt_onsale->slug }}" class="btn btn-two">Comprar
+                                           ahora</a>
+                                       <span class="price">S/120.00 <span class="old-price">S/150.00</span></span>
+                                   </div>
+                               </div>
+                           </div>
+                       </div>
+                   </div>
+               @endforeach
                <div class="features-products-wrap">
                    <div class="row justify-content-center">
                        <div class="col-lg-6 col-md-8">
@@ -221,7 +289,8 @@
                                <p>Estas cápsulas están formuladas con extractos naturales para revitalizar y regenerar
                                    células, ayudando a mejorar el bienestar y vitalidad en general.</p>
                                <div class="features-product-bottom">
-                                   <a href="shop-details.html" class="btn">Ver Producto</a>
+                                   <a href="/products/{{ $produt_onsale->slug }}" class="btn btn-two">Comprar
+                                       ahora</a>
                                    <span class="price">S/120.00 <span class="old-price">S/150.00</span></span>
                                </div>
                            </div>
@@ -325,19 +394,22 @@
        <!-- shop-area-end -->
 
        <!-- video-area -->
-       <div class="video-area video-bg" data-background="assets/img/bg/video_bg.jpg">
+       <div class="video-area video-bg" data-background="assets/img/video/foto_sosa1.jpg">
            <div class="video-bg-overlay"></div>
            <div class="container">
                <div class="row">
                    <div class="col-12">
                        <div class="video-btn">
-                           <a href="https://www.youtube.com/watch?v=HQfF5XRVXjU" class="popup-video ripple-white"><i
-                                   class="fas fa-play"></i></a>
+                           <iframe width="851" height="480" src="https://www.youtube.com/embed/eHsRrHSxSWQ"
+                               title="Dolor en las articulaciones" frameborder="0"
+                               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                               referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
                        </div>
                    </div>
                </div>
            </div>
-           <div class="video-shape one"><img src="assets/img/others/video_shape01.png" alt="shape"></div>
+           <div class="video-shape one"><img src="assets/img/video/video_shape01.png" alt="shape"></div>
            <div class="video-shape two"><img src="assets/img/others/video_shape02.png" alt="shape"></div>
        </div>
        <!-- video-area-end -->
@@ -490,7 +562,7 @@
 
 
        <!-- área de testimonios -->
-       <section class="testimonial-area testimonial-bg" data-background="assets/img/bg/testimonial_bg.jpg">
+       <section class="testimonial-area testimonial-bg" data-background="assets/img/testimonios/foto_sosa2.jpg">
            <div class="testimonial-overlay"></div>
            <div class="container">
                <div class="row justify-content-center">
