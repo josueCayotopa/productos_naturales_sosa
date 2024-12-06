@@ -18,7 +18,7 @@
                                     <li class="section-link"><a href="/" class="section-link">Inicio</a>
                                     </li>
                                     <li><a href="{{ route('products') }}" class="section-link">Productos</a></li>
-                                    <li><a href="#paroller" class="section-link">Nosotros</a></li>
+                                    <li><a href="{{ route('nosotros') }}" class="section-link">Nosotros</a></li>
                                     <li><a href="{{ route('testimonios') }}" class="section-link">Testimonios</a></li>
                                     <li><a href="{{ route('tiendas') }}" class="section-link">Nuestras Tiendas</a></li>
                                     <li><a href="/contact">Contacto</a></li>

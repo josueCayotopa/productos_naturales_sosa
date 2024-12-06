@@ -110,14 +110,14 @@
                                            <i class="fas fa-star-half-alt"></i>
                                        @endif
 
-                                     
+
                                    </div>
 
 
                                    <div class="shop-content-bottom">
                                        <a href="/cart" class="cart">
-                                        <i class="flaticon-shopping-cart"></i>
-                                    </a>
+                                           <i class="flaticon-shopping-cart"></i>
+                                       </a>
                                        <a href="{{ $produt_onsale->slug ? '/products/' . $produt_onsale->slug : '#' }}"
                                            class="btn btn-two">Comprar ahora</a>
                                    </div>
@@ -288,11 +288,7 @@
                                <h6 class="features-product-quantity">Alta Concentración, 60 cápsulas</h6>
                                <p>Estas cápsulas están formuladas con extractos naturales para revitalizar y regenerar
                                    células, ayudando a mejorar el bienestar y vitalidad en general.</p>
-                               <div class="features-product-bottom">
-                                   <a href="/products/{{ $produt_onsale->slug }}" class="btn btn-two">Comprar
-                                       ahora</a>
-                                   <span class="price">S/120.00 <span class="old-price">S/150.00</span></span>
-                               </div>
+
                            </div>
                        </div>
                    </div>

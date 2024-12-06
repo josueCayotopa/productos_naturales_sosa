@@ -12,6 +12,7 @@ use App\Livewire\Contacto;
 use App\Livewire\HomePage;
 use App\Livewire\MyOrderDetailPage;
 use App\Livewire\MyOrdersPage;
+use App\Livewire\Nosotros;
 use App\Livewire\ProductDetailPage;
 use App\Livewire\ProductsPage;
 use App\Livewire\ProdutsPage;
@@ -36,6 +37,7 @@ Route::get('/contact', Contacto::class)->name('Contacto');
 Route::get('/categories', CategoriesPage::class);
 Route::get('/testimonios', Testimonios::class)->name('testimonios');
 Route::get('/tiendas', Tiendas::class)->name('tiendas');
+Route::get('/nosotros', Nosotros::class)->name('nosotros');
 Route::get('/products', ProductsPage::class)->name('products');
 Route::get('/cart', CartPage::class);
 Route::get('/products/{slug}', ProductDetailPage::class);
@@ -46,7 +48,7 @@ Route::middleware('guest')->group(function () {
     Route::get('/reset/{token}', RestPasswordPage::class)->name('password.reset');
 });
 Route::middleware('auth')->group(function () {
-    Route::get('/logout', function(){
+    Route::get('/logout', function () {
         auth()->logout();
         return redirect('/');
     });
