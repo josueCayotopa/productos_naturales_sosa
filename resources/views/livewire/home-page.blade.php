@@ -294,33 +294,8 @@
                    </div>
                @endforeach
 
-
            </div>
-           <div class="fp-shapes-wrap">
-               <div class="fp-shape-one">
-                   <img src="assets/img/others/features_sec_shape01.png" alt="shape" class="paroller"
-                       data-paroller-factor="0.25" data-paroller-factor-lg="0.20" data-paroller-factor-md="0.25"
-                       data-paroller-factor-sm="0.10" data-paroller-type="foreground"
-                       data-paroller-direction="vertical">
-               </div>
-               <div class="fp-shape-two">
-                   <img src="assets/img/others/features_sec_shape02.png" alt="shape" class="paroller"
-                       data-paroller-factor="-0.25" data-paroller-factor-lg="0.20" data-paroller-factor-md="0.25"
-                       data-paroller-factor-sm="0.10" data-paroller-type="foreground"
-                       data-paroller-direction="vertical">
-               </div>
-               <div class="fp-shape-three">
-                   <img src="assets/img/others/features_sec_shape03.png" alt="shape" class="paroller"
-                       data-paroller-factor="0.25" data-paroller-factor-lg="0.20" data-paroller-factor-md="0.25"
-                       data-paroller-factor-sm="0.10" data-paroller-type="foreground"
-                       data-paroller-direction="vertical">
-               </div>
-           </div>
-           <div class="fp-circle one"></div>
-           <div class="fp-circle two"></div>
-           <div class="fp-circle three"></div>
-           <div class="fp-circle four"></div>
-           <div class="fp-circle five"></div>
+          
        </section>
        <!-- features-product-end -->
 
