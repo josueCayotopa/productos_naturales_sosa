@@ -14,10 +14,13 @@ return new class extends Migration
         Schema::create('tiendas', function (Blueprint $table) {
             $table->id(); // ID de la tienda
             $table->string('nombre')->nullable(); // Nombre de la tienda
-            $table->string('ubicacion')->nullable(); // Ubicación de la tienda
-            $table->string('imagen')->nullable(); // Imagen de la tienda
-            $table->string('nombre_vendedor'); // Nombre del vendedor
-            $table->string('detalle_vendedor');
+            $table->string('ubicacion')->nullable(); // Dirección de la tienda
+            $table->string('imagen')->nullable(); // URL o ruta de la imagen
+            $table->string('hora_atencion', 100)->nullable(); // Horario de atención
+            $table->string('dias_atencion', 100)->nullable(); // Días de atención
+            $table->string('telefono', 20)->nullable(); // Teléfono de contacto
+            $table->string('nombre_vendedor')->nullable(); // Nombre del vendedor
+            $table->text('detalle_vendedor')->nullable(); // Detalle o descripción del vendedor
             $table->timestamps(); // Fechas de creación y actualización
         });
     }

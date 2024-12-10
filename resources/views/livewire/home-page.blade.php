@@ -110,14 +110,14 @@
                                            <i class="fas fa-star-half-alt"></i>
                                        @endif
 
-                                     
+
                                    </div>
 
 
                                    <div class="shop-content-bottom">
                                        <a href="/cart" class="cart">
-                                        <i class="flaticon-shopping-cart"></i>
-                                    </a>
+                                           <i class="flaticon-shopping-cart"></i>
+                                       </a>
                                        <a href="{{ $produt_onsale->slug ? '/products/' . $produt_onsale->slug : '#' }}"
                                            class="btn btn-two">Comprar ahora</a>
                                    </div>
@@ -249,78 +249,51 @@
                        <div class="row justify-content-center">
                            <div class="col-lg-6 col-md-8">
                                <div class="features-products-thumb">
-                                   <div class="main-img">
-                                       <img src="assets/img/banner/prod1.png" alt="img">
-                                   </div>
+                                   @if (!empty($produt_onsale->images) && isset($produt_onsale->images[0]))
+                                       <img src="{{ url('storage', $produt_onsale->images[0]) }}"
+                                           alt="{{ $produt_onsale->name }}">
+                                   @else
+                                       <img src="{{ asset('images/default-product.png') }}"
+                                           alt="Imagen no disponible">
+                                   @endif
                                    <img src="assets/img/banner/cel1.png" alt="img" class="shape-img">
                                </div>
                            </div>
                            <div class="col-lg-6 col-md-10">
                                <div class="features-product-content">
-                                   <h2 class="title"><a href="shop-details.html">Cápsulas de Células Madre</a></h2>
-                                   <h6 class="features-product-quantity">Alta Concentración, 60 cápsulas</h6>
-                                   <p>Estas cápsulas están formuladas con extractos naturales para revitalizar y
-                                       regenerar
-                                       células, ayudando a mejorar el bienestar y vitalidad en general.</p>
+                                   <h2 class="title"> <a
+                                           href="{{ $produt_onsale->slug ? '/products/' . $produt_onsale->slug : '#' }}">
+                                           {{ $produt_onsale->name ?? 'Producto sin nombre' }}
+                                       </a></h2>
+                                   <h6 class="features-product-quantity">
+                                       {{ $produt_onsale->category->name . ' - ' . $produt_onsale->brand->name }}
+                                   </h6>
+                                   <p>{!! nl2br(e($produt_onsale->description)) !!}</p>
                                    <div class="features-product-bottom">
                                        <a href="/products/{{ $produt_onsale->slug }}" class="btn btn-two">Comprar
                                            ahora</a>
-                                       <span class="price">S/120.00 <span class="old-price">S/150.00</span></span>
+                                       {{-- Precio con descuento --}}
+                                       @if (!empty($produt_onsale->porcentaje_descuento))
+                                           <span class="old-price">
+                                               <s>S/. {{ number_format($produt_onsale->price ?? 0, 2) }}</s>
+                                           </span>
+                                           <span class="price">
+                                               S/. {{ number_format($produt_onsale->final_price ?? 0, 2) }}
+                                           </span>
+                                       @else
+                                           {{-- Precio normal (sin descuento) --}}
+                                           <span class="price">
+                                               S/. {{ number_format($produt_onsale->price ?? 0, 2) }}
+                                           </span>
+                                       @endif
+
                                    </div>
                                </div>
                            </div>
                        </div>
                    </div>
                @endforeach
-               <div class="features-products-wrap">
-                   <div class="row justify-content-center">
-                       <div class="col-lg-6 col-md-8">
-                           <div class="features-products-thumb">
-                               <div class="main-img">
-                                   <img src="assets/img/banner/prod1.png" alt="img">
-                               </div>
-                               <img src="assets/img/banner/cel1.png" alt="img" class="shape-img">
-                           </div>
-                       </div>
-                       <div class="col-lg-6 col-md-10">
-                           <div class="features-product-content">
-                               <h2 class="title"><a href="shop-details.html">Cápsulas de Células Madre</a></h2>
-                               <h6 class="features-product-quantity">Alta Concentración, 60 cápsulas</h6>
-                               <p>Estas cápsulas están formuladas con extractos naturales para revitalizar y regenerar
-                                   células, ayudando a mejorar el bienestar y vitalidad en general.</p>
-                               <div class="features-product-bottom">
-                                   <a href="/products/{{ $produt_onsale->slug }}" class="btn btn-two">Comprar
-                                       ahora</a>
-                                   <span class="price">S/120.00 <span class="old-price">S/150.00</span></span>
-                               </div>
-                           </div>
-                       </div>
-                   </div>
-               </div>
-               <div class="features-products-wrap">
-                   <div class="row justify-content-center">
-                       <div class="col-lg-6 col-md-8">
-                           <div class="features-products-thumb">
-                               <div class="main-img">
-                                   <img src="assets/img/banner/prod2.png" alt="img">
-                               </div>
-                               <img src="assets/img/banner/colest.png" alt="img" class="shape-img">
-                           </div>
-                       </div>
-                       <div class="col-lg-6 col-md-10">
-                           <div class="features-product-content">
-                               <h2 class="title"><a href="shop-details.html">Tónico para el Colesterol</a></h2>
-                               <h6 class="features-product-quantity">Natural y Eficaz</h6>
-                               <p>Este tónico ayuda a mantener los niveles de colesterol en equilibrio de manera
-                                   natural, promoviendo una salud cardiovascular óptima.</p>
-                               <div class="features-product-bottom">
-                                   <a href="shop-details.html" class="btn">Ver Producto</a>
-                                   <span class="price">S/90.00 <span class="old-price">S/110.00</span></span>
-                               </div>
-                           </div>
-                       </div>
-                   </div>
-               </div>
+
 
            </div>
            <div class="fp-shapes-wrap">
@@ -352,7 +325,7 @@
        <!-- features-product-end -->
 
        <!-- shop-area -->
-       <section class="home-shop-area">
+       {{-- <section class="home-shop-area">
            <div class="container">
                <div class="row home-shop-active">
                    @foreach ($productos_destacado as $producto_destacado)
@@ -390,7 +363,7 @@
 
                </div>
            </div>
-       </section>
+       </section> --}}
        <!-- shop-area-end -->
 
        <!-- video-area -->
@@ -562,7 +535,7 @@
 
 
        <!-- área de testimonios -->
-       <section class="testimonial-area testimonial-bg" data-background="assets/img/testimonios/foto_sosa2.jpg">
+       {{-- <section class="testimonial-area testimonial-bg" data-background="assets/img/testimonios/foto_sosa2.jpg">
            <div class="testimonial-overlay"></div>
            <div class="container">
                <div class="row justify-content-center">
@@ -635,11 +608,11 @@
                    </div>
                </div>
            </div>
-       </section>
+       </section> --}}
        <!-- área de testimonios-fin -->
 
 
-       <!-- blog-post-area -->
+       {{-- <!-- blog-post-area -->
        <section id="news" class="blog-post-area">
            <div class="container">
                <div class="blog-inner-wrapper">
@@ -816,7 +789,7 @@
            <div class="blog-bg-shape one"></div>
            <div class="blog-bg-shape two"></div>
        </section>
-       <!-- blog-post-area-end -->
+       <!-- blog-post-area-end --> --}}
 
 
    </main>

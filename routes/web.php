@@ -37,7 +37,7 @@ Route::get('/categories', CategoriesPage::class);
 Route::get('/testimonios', Testimonios::class)->name('testimonios');
 Route::get('/tiendas', Tiendas::class)->name('tiendas');
 Route::get('/products', ProductsPage::class)->name('products');
-Route::get('/cart', CartPage::class);
+Route::get('/cart', CartPage::class)->name('cart');
 Route::get('/products/{slug}', ProductDetailPage::class);
 Route::middleware('guest')->group(function () {
     Route::get('/login', LoginPage::class)->name('login');
@@ -50,7 +50,7 @@ Route::middleware('auth')->group(function () {
         auth()->logout();
         return redirect('/');
     });
-    Route::get('/checkout', CheckoutPage::class);
+    Route::get('/checkout', CheckoutPage::class)->name('checkout');
     Route::get('/my-orders', MyOrdersPage::class);
     Route::get('/my-orders/{order}', MyOrderDetailPage::class)->name('my-orders.show');
     Route::get('/success', SuccessPage::class)->name('success');

@@ -75,84 +75,7 @@
 
                             </ul>
                         </div>
-                         <div class="widget">
-                             <h4 class="sidebar-title">
-                                 ÚLTIMOS PRODUCTOS</h4>
-                             <div class="lp-post-list">
-                                 <ul class="lp-post-item list-wrap">
-                                     <li>
-                                         <div class="lp-post-thumb">
-                                             <a href="shop-details.html"><img
-                                                     src="assets/img/products/home_shop_thumb01.png" alt="img"></a>
-                                         </div>
-                                         <div class="lp-post-content">
-                                             <ul class="lp-post-rating list-wrap">
-                                                 <li>
-                                                     <i class="fas fa-star"></i>
-                                                     <i class="fas fa-star"></i>
-                                                     <i class="fas fa-star"></i>
-                                                     <i class="fas fa-star"></i>
-                                                     <i class="fas fa-star"></i>
-                                                 </li>
-                                             </ul>
-                                             <h4 class="title"><a href="shop-details.html">multi vitamin C</a></h4>
-                                             <span class="price">$29.00</span>
-                                         </div>
-                                     </li>
-                                     <li>
-                                         <div class="lp-post-thumb">
-                                             <a href="shop-details.html"><img
-                                                     src="assets/img/products/home_shop_thumb02.png" alt="img"></a>
-                                         </div>
-                                         <div class="lp-post-content">
-                                             <ul class="lp-post-rating list-wrap">
-                                                 <li>
-                                                     <i class="fas fa-star"></i>
-                                                     <i class="fas fa-star"></i>
-                                                     <i class="fas fa-star"></i>
-                                                     <i class="fas fa-star"></i>
-                                                     <i class="fas fa-star"></i>
-                                                 </li>
-                                             </ul>
-                                             <h4 class="title"><a href="shop-details.html">B-complex Zinc</a></h4>
-                                             <span class="price">$36.00</span>
-                                         </div>
-                                     </li>
-                                     <li>
-                                         <div class="lp-post-thumb">
-                                             <a href="shop-details.html"><img
-                                                     src="assets/img/products/home_shop_thumb03.png" alt="img"></a>
-                                         </div>
-                                         <div class="lp-post-content">
-                                             <ul class="lp-post-rating list-wrap">
-                                                 <li>
-                                                     <i class="fas fa-star"></i>
-                                                     <i class="fas fa-star"></i>
-                                                     <i class="fas fa-star"></i>
-                                                     <i class="fas fa-star"></i>
-                                                     <i class="fas fa-star"></i>
-                                                 </li>
-                                             </ul>
-                                             <h4 class="title"><a href="shop-details.html">Protein Powder</a></h4>
-                                             <span class="price">$19.99</span>
-                                         </div>
-                                     </li>
-                                 </ul>
-                             </div>
-                         </div>
-                         <div class="widget">
-                             <h4 class="sidebar-title">
-                                 Etiquetas de producto</h4>
-                             <ul class="Product-tag-list list-wrap">
-                                 <li><a href="shop.html">Bone Support</a></li>
-                                 <li><a href="shop.html">Energy Support</a></li>
-                                 <li><a href="shop.html">Hair</a></li>
-                                 <li><a href="shop.html">Multivitamins</a></li>
-                                 <li><a href="shop.html">Pre-Workout</a></li>
-                                 <li><a href="shop.html">Protein</a></li>
-                                 <li><a href="shop.html">Skin & Nails</a></li>
-                             </ul>
-                         </div>
+                        
                      </aside>
                  </div>
                  <div class="col-xl-9 col-lg-8 col-md-12 col-sm-8 shop-sidebar-pad order-first">
@@ -169,10 +92,9 @@
                                      <form class="woocommerce-ordering mb-0" method="get">
                                          <select id="shortBy" name="orderby" class="orderby form-select"
                                              aria-label="Shop order">
-                                             <option value="menu_order" selected="selected">Clasificación
-                                                 predeterminada</option>
-                                             <option value="popularity">Ordenar por popularidad</option>
-                                             <option value="rating">Ordenar por calificación promedio</option>
+                                             <option value="menu_order" selected="selected">Estado del producto</option>
+                                             <option value="popularity">Productos destacados</option>
+                                             <option value="rating">En Oferta</option>
                                              <option value="date">Ordenar por último</option>
                                              <option value="price">Ordenar por precio: de menor a mayor</option>
                                              <option value="price-desc">Ordenar por precio: de mayor a menor</option>
