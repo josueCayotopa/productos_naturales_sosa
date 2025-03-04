@@ -1,5 +1,5 @@
 <div class="w-full max-w-[85rem] py-10 px-4 sm:px-6 lg:px-8 mx-auto">
-    <h1 class="text-4xl font-bold text-slate-500">My Orders</h1>
+    <h1 class="text-4xl font-bold text-slate-500">MI ORDEN</h1>
     <div class="flex flex-col bg-white p-5 rounded mt-4 shadow-lg">
         <div class="-m-1.5 overflow-x-auto">
             <div class="p-1.5 min-w-full inline-block align-middle">
@@ -8,20 +8,18 @@
                         <thead>
                             <tr>
                                 <th scope="col"
-                                    class="px-6 py-3 text-start text-xs font-medium text-gray-500 uppercase">Order</th>
+                                    class="px-6 py-3 text-start text-xs font-medium text-gray-500 uppercase">ORDEN</th>
                                 <th scope="col"
-                                    class="px-6 py-3 text-start text-xs font-medium text-gray-500 uppercase">Date</th>
+                                    class="px-6 py-3 text-start text-xs font-medium text-gray-500 uppercase">FECHA</th>
                                 <th scope="col"
-                                    class="px-6 py-3 text-start text-xs font-medium text-gray-500 uppercase">Order
-                                    Status</th>
+                                    class="px-6 py-3 text-start text-xs font-medium text-gray-500 uppercase">ESTADO DE ORDEN </th>
                                 <th scope="col"
-                                    class="px-6 py-3 text-start text-xs font-medium text-gray-500 uppercase">Payment
-                                    Status</th>
+                                    class="px-6 py-3 text-start text-xs font-medium text-gray-500 uppercase">ESTADO DE PAGO</th>
                                 <th scope="col"
                                     class="px-6 py-3 text-start text-xs font-medium text-gray-500 uppercase">Order
                                     Amount</th>
                                 <th scope="col"
-                                    class="px-6 py-3 text-end text-xs font-medium text-gray-500 uppercase">Action</th>
+                                    class="px-6 py-3 text-end text-xs font-medium text-gray-500 uppercase">ACCIONES</th>
                             </tr>
                         </thead>
                         <tbody>

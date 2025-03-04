@@ -19,63 +19,91 @@ class ProductsPage extends Component
     use LivewireAlert;
 
     use WithPagination;
-    #[Url]
-    public $selected_catefories = [];
-    #[Url]
+
+    public $selected_categories = [];
     public $selected_brands = [];
-    #[Url]
-    public $featured = [];
-    #[Url]
-    public $on_sale = [];
-    #[Url]
-    public $price_range = 4000;
-    #[Url]
+    public $min_price = 0;
+    public $max_price = 1000;
     public $sort = 'latest';
 
-    // Añadir producto a carrito 
+    protected $queryString = [
+        'selected_categories',
+        'selected_brands',
+        'min_price',
+        'max_price',
+        'sort',
+    ];
+
+    public function updatingSelectedCategories()
+    {
+        $this->resetPage();
+    }
+
+    public function updatingSelectedBrands()
+    {
+        $this->resetPage();
+    }
+
+    public function updatingMinPrice()
+    {
+        $this->resetPage();
+    }
+
+    public function updatingMaxPrice()
+    {
+        $this->resetPage();
+    }
+
+    public function updatingSort()
+    {
+        $this->resetPage();
+    }
+
     public function addToCart($product_id)
     {
-        $total_count = CartMangement::añadirArticuloCesta($product_id);
-        $this->dispatch('update-cart-count', total_count: $total_count)->to(Navbar::class);
-        $this->alert('success', 'Product added to the cart successfully', [
-            'position' => 'bottom-end',
-
-        ]);
+        CartMangement::añadirArticuloCesta($product_id);
+        $this->emit('cartUpdated');
     }
+
     public function render()
-
     {
-        $productquery = Product::query()->where('is_active', 1);
-        if (!empty($this->selected_catefories)) {
-            $productquery->whereIn('category_id', $this->selected_catefories);
+        $query = Product::query()->where('is_active', 1);
+
+        if (!empty($this->selected_categories)) {
+            $query->whereIn('category_id', $this->selected_categories);
         }
+
         if (!empty($this->selected_brands)) {
-            $productquery->whereIn('brand_id', $this->selected_brands);
-        }
-        if ($this->featured) {
-            $productquery->where('is_featured', 1);
-        }
-        if ($this->on_sale) {
-            $productquery->where('on_sale', 1);
-        }
-        if ($this->price_range) {
-            $productquery->whereBetween('price', [0, $this->price_range]);
-        }
-        if ($this->sort == 'latest') {
-            $productquery->latest();
-        }
-        if ($this->sort == 'price') {
-            $productquery->orderBy('price');
+            $query->whereIn('brand_id', $this->selected_brands);
         }
 
+        $query->whereBetween('price', [$this->min_price, $this->max_price]);
 
-        return view(
-            'livewire.products-page',
-            [
-                'products' => $productquery->paginate(6),
-                'brands' => Brand::where('is_active', 1)->get(['id', 'name', 'slug']),
-                'categories' => Category::where('is_active', 1)->get(['id', 'name', 'slug']),
-            ]
-        );
+        switch ($this->sort) {
+            case 'featured':
+                $query->where('is_featured', 1);
+                break;
+            case 'on_sale':
+                $query->where('on_sale', 1);
+                break;
+            case 'price_asc':
+                $query->orderBy('price', 'asc');
+                break;
+            case 'price_desc':
+                $query->orderBy('price', 'desc');
+                break;
+            case 'latest':
+            default:
+                $query->latest();
+                break;
+        }
+
+        $products = $query->paginate(6);
+
+        return view('livewire.products-page', [
+            'products' => $products,
+            'categories' => Category::where('is_active', 1)->get(),
+            'brands' => Brand::where('is_active', 1)->get(),
+        ]);
     }
 }

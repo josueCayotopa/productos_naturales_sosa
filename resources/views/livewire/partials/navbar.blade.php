@@ -17,9 +17,8 @@
                                 <ul class="navigation">
                                     <li class="section-link"><a href="/" class="section-link">Inicio</a></li>
                                     <li><a href="{{ route('products') }}" class="section-link">Productos</a></li>
-                                    <li><a href="{{ route('nosotros') }}" class="section-link">Nosotros</a></li>
-                                    <li><a href="{{ route('testimonios') }}" class="section-link">Testimonios</a></li>
-                                    <li><a href="{{ route('tiendas') }}" class="section-link">Nuestras Tiendas</a></li>
+                                    <li><a href="{{ route('nosotros') }}" class="section-link">Nosotros</a></li>                                  
+                                    <li><a href="{{ route('tiendas') }}" class="section-link">Tiendas</a></li>
                                     <li><a href="/contact">Contacto</a></li>
                                 </ul>
                             </div>
@@ -58,6 +57,11 @@
                                     </li>
                                     <li class="header-search"><a href="#"><i class="flaticon-search"></i></a></li>
                                     <li class="offCanvas-btn d-none d-xl-block"><a href="#" class="navSidebar-button"><i class="flaticon-layout"></i></a></li>
+                                    <li class="header-whatsapp">
+                                        <a href="https://wa.me/51970710530" target="_blank" class="whatsapp-btn" aria-label="Contáctanos por WhatsApp">
+                                            <i class="fab fa-whatsapp"></i> 
+                                        </a>
+                                    </li>
                                 </ul>
                             </div>
                         </nav>

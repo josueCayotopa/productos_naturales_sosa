@@ -612,12 +612,12 @@ $("#slider-range").slider({
 	range: true,
 	min: 20,
 	max: 400,
-	values: [120, 280],
+	values: [50, 280],
 	slide: function (event, ui) {
-		$("#amount").val("$" + ui.values[0] + " - $" + ui.values[1]);
+		$("#amount").val("S/." + ui.values[0] + " - S/." + ui.values[1]);
 	}
 });
-$("#amount").val("$" + $("#slider-range").slider("values", 0) + " - $" + $("#slider-range").slider("values", 1));
+$("#amount").val("S/." + $("#slider-range").slider("values", 0) + " - S/." + $("#slider-range").slider("values", 1));
 
 
 /*=============================================

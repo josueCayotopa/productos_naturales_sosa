@@ -29,7 +29,7 @@ class AdminPanelProvider extends PanelProvider
             ->path('admin')
             ->login()
             ->brandLogo(asset('assets/img/logo-sosa.png')) // Icono en la esquina superior izquierda
-            ->brandLogoHeight('4rem')
+            ->brandLogoHeight('3.5rem')
             ->colors([
                 'primary' => '#1670C4',
             ])

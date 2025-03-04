@@ -7649,3 +7649,236 @@ body.search-visible {
     color: #555;
     margin-left: 5px;
 }
+/* Nosotros */
+/* Estilos para "Nuestra Historia" */
+.section {
+    padding: 80px 0;
+    background-color: #f8f9fa;
+}
+
+.section-title {
+    text-align: center;
+    margin-bottom: 50px;
+    color: #333;
+    font-size: 36px;
+    font-weight: 700;
+}
+#history {
+    background-color: #ffffff;
+}
+
+#history .row {
+    align-items: center;
+}
+
+#history img {
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
+}
+
+#history img:hover {
+    transform: scale(1.05);
+}
+
+#history p {
+    font-size: 18px;
+    line-height: 1.6;
+    color: #555;
+}
+
+/* Estilos para "Conoce a Nuestro Equipo" */
+#team {
+    background-color: #f1f8e9;
+}
+
+.team-member {
+    background-color: #ffffff;
+    border-radius: 10px;
+    padding: 30px;
+    text-align: center;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.team-member:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+}
+
+.team-member-img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin: 0 auto 20px;
+    border: 5px solid #e8f5e9;
+}
+
+.team-member h4 {
+    color: #333;
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.team-member p.text-muted {
+    color: #66bb6a;
+    font-weight: 600;
+    margin-bottom: 15px;
+}
+
+.team-member p {
+    color: #555;
+    font-size: 16px;
+    line-height: 1.5;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .section-title {
+        font-size: 28px;
+    }
+
+    #history img {
+        margin-bottom: 30px;
+    }
+
+    .team-member {
+        margin-bottom: 30px;
+    }
+}
+/* Mission and Vision */
+#mission-vision .card {
+	border: none;
+	border-radius: 15px;
+	box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+	transition: transform 0.3s ease;
+  }
+  
+  #mission-vision .card:hover {
+	transform: translateY(-10px);
+  }
+  
+  #mission-vision .card-body {
+	padding: 2rem;
+  }
+  
+  #mission-vision .card-title {
+	color: #66b021;
+	font-size: 1.5rem;
+	margin-bottom: 1rem;
+  }
+  
+  #mission-vision .card-text {
+	color: #555;
+	font-size: 1rem;
+	line-height: 1.6;
+  }
+  
+  /* Values */
+  #values .card {
+	border: none;
+	border-radius: 15px;
+	box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+	transition: all 0.3s ease;
+  }
+  
+  #values .card:hover {
+	transform: translateY(-5px);
+	box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+  }
+  
+  #values .card-body {
+	padding: 1.5rem;
+  }
+  
+  #values .card-title {
+	color: #66b021;
+	font-size: 1.3rem;
+	margin-bottom: 1rem;
+  }
+  
+  #values .card-text {
+	color: #666;
+	font-size: 0.9rem;
+  }
+  
+  /* Goals */
+  #goals .list-group-item {
+	border: none;
+	background-color: #f8f9fa;
+	margin-bottom: 1rem;
+	padding: 1rem 1.5rem;
+	border-radius: 10px;
+	box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+	transition: all 0.3s ease;
+  }
+  
+  #goals .list-group-item:hover {
+	background-color: #66b021;
+	color: white;
+	transform: translateX(5px);
+  }
+  
+  /* Importance */
+  #importance {
+	background-color: #ffffff;
+  }
+  
+  #importance p {
+	color: #555;
+	font-size: 1rem;
+	line-height: 1.8;
+	margin-bottom: 1.5rem;
+  }
+  
+  #importance img {
+	border-radius: 15px;
+	box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+	transition: transform 0.3s ease;
+  }
+  
+  #importance img:hover {
+	transform: scale(1.05);
+  }
+  
+  .section-title::after {
+	content: '';
+	display: block;
+	width: 50px;
+	height: 3px;
+	background-color: #66b021;
+	margin: 15px auto 0;
+  }
+  /* Responsive Adjustments */
+  @media (max-width: 768px) {
+	.section-title {
+	  font-size: 2rem;
+	}
+  
+	#mission-vision .card,
+	#values .card {
+	  margin-bottom: 1.5rem;
+	}
+  
+	#importance .col-md-6:first-child {
+	  margin-bottom: 2rem;
+	}
+  }
+  .header-whatsapp a {
+    color: #25d366;
+    font-size: 1.2em;
+    font-weight: bold;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    padding: 5px 10px;
+    border: 2px solid #25d366;
+    border-radius: 5px;
+    transition: all 0.3s ease-in-out;
+}
+
+.header-whatsapp a:hover {
+    background-color: #25d366;
+    color: white;
+}

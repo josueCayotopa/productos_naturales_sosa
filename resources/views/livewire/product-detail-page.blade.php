@@ -95,6 +95,7 @@
                                     </div>
                                 </form>
                             </div>
+                            
                             <a href="#" class="cart-btn" wire:click.prevent="addToCart({{ $product->id }})">Añadir</a>
                             <a href="#" class="wishlist-btn" data-bs-toggle="tooltip" data-bs-placement="top" title="Wishlist">
                                 <i class="far fa-heart"></i>

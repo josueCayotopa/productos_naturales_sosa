@@ -32,7 +32,7 @@
                    data-wow-delay=".2s" data-wow-duration="2s">
            </div>
            <div class="banner-shape two">
-               <img src="assets/img/banner/banner_shape02.png" alt="shape" class="wow bannerFadeInRight"
+               <img src="assets/img/banner/b3.png" alt="shape" class="wow bannerFadeInRight"
                    data-wow-delay=".2s" data-wow-duration="2s">
            </div>
            <div class="banner-shape three">
@@ -115,7 +115,7 @@
 
 
                                    <div class="shop-content-bottom">
-                                       <a href="/cart" class="cart">
+                                       <a href="{{ $produt_onsale->slug ? '/products/' . $produt_onsale->slug : '#' }}" class="cart">
                                            <i class="flaticon-shopping-cart"></i>
                                        </a>
                                        <a href="{{ $produt_onsale->slug ? '/products/' . $produt_onsale->slug : '#' }}"

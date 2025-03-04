@@ -7,13 +7,13 @@
                     <div class="row justify-content-center">
                         <div class="col-xl-10">
                             <div class="breadcrumb-content text-center">
-                                <h2 class="title">Contactanos a Caleb</h2>
+                                <h2 class="title">Contactanos</h2>
                                 <nav aria-label="Breadcrumbs" class="breadcrumb-trail">
                                     <ul class="breadcrumb">
                                         <li class="breadcrumb-item trail-item trail-begin">
-                                            <a href="index.html"><span>Home</span></a>
+                                            <a href="index.html"><span>Inicio</span></a>
                                         </li>
-                                        <li class="breadcrumb-item trail-item trail-end"><span>Contact Us</span></li>
+                                        <li class="breadcrumb-item trail-item trail-end"><span>Contactanos</span></li>
                                     </ul>
                                 </nav>
                             </div>
@@ -65,7 +65,7 @@
                                         <i class="fas fa-globe"></i>
                                     </div>
                                     <div class="contact-content">
-                                        <h5 class="title">Conexión Web</h5>
+                                        <h5 class="title">Sitio Web</h5>
                                         <p class="contact-desc"> inprabuenasalud@gmail.com <br> <a href="productosnaturalessosa.com">productosnaturalessosa.com</a>  
                                         <br> <a href="https://www.facebook.com/naturalsosa/"> https://www.facebook.com/naturalsosa/</a>
                                     </p>
