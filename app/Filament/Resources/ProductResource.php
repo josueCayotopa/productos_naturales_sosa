@@ -73,12 +73,15 @@ class ProductResource extends Resource
                                     ->directory('products')
                                     ->maxFiles(5)
                                     ->reorderable(),
-                                FileUpload::make('imagen_promocion')
-                                    ->label('Subir Imágenes para mostrar en promocion') // "Upload Images" en español
-                                    ->multiple()
+                              
+                                    FileUpload::make('imagen_promocion')
+                                    ->label('Subir Imágenes para mostrar en promoción')
                                     ->directory('products_promocion')
                                     ->maxFiles(5)
                                     ->reorderable()
+                                    ->disabled(fn (callable $get) => !$get('en_promocion')) // Solo se activa si en_promocion está activado
+                                    ->reactive() // Permite que el campo se actualice al cambiar en_promocion
+                                
                             ]
                         )
                     ]
@@ -166,12 +169,7 @@ class ProductResource extends Resource
                                 Toggle::make('en_promocion')
                                     ->label('En promoción temporal')
                                     ->reactive(), // Permite reaccionar a los cambios de valor
-                                TextInput::make('rating')
-                                    ->label('Calificación promedio')
-                                    ->numeric()
-                                    ->maxValue(5)
-                                    ->step(1)
-                                   ,
+                               
 
                             ]
                         )

@@ -15,8 +15,8 @@ return new class extends Migration
            
             $table->decimal('discount_price', 10, 2)->nullable(); // Precio con descuento
             $table->integer('discount_percentage')->nullable(); // Porcentaje de descuento
-            $table->float('rating', 2, 1)->default(0); // Rating promedio del producto
-            $table->integer('rating_count')->default(0); // Número de calificaciones
+            $table->float('rating', 2, 1)->nullable(); // Rating promedio del producto
+            $table->integer('rating_count')->nullable(); // Número de calificaciones
         });
     }
 

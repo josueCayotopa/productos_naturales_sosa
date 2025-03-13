@@ -17,8 +17,6 @@ class Product extends Model
         'description',
         'price',
         'discount_price',
-        'rating',
-        'rating_count',
         'is_active',
         'is_featured',
         'in_stock',

@@ -12,7 +12,6 @@
 
                            <!-- Título principal llamativo -->
                            {{-- <h2 class="title">Descubre la Fuerza de la Naturaleza</h2> --}}
-
                            <!-- Botón de llamada a la acción -->
                            <a href="{{ route('products') }}" class="btn btn-two">Nuestros Productos</a>
                        </div>
